@@ -1,0 +1,27 @@
+.navbar {
+    min-height: 5rem;
+    background: var(--trigo);
+}
+
+.navbar-brand {
+    font-family: var(--sample);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--rojo);
+}
+
+.navbar-brand span {
+    font-family: var(--monotype);
+    text-transform: capitalize;
+    color: var(--negro);
+}
+
+.navbar-brand,
+.navbar-brand span {
+    font-size: 30px;
+}
+
+i {
+    color: var(--azul);
+    text-align: center;
+}

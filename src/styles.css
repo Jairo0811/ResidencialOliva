@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --humoblanco: #fff1f0;
+    --trigo: #F5DEB3;
+    --blanco: #fffafa;
+    --gris: #dedede;
+    --rojo: #ff0000;
+    --azul: #0000cd;
+    --negro: #000000;
+    --verde: #25d366;
+    --naranja: #ff5a5f;
+    --monotype: "Monotype Corsiva";
+    --sample: "sample";
+}
+
+.selector-for-some-widget {
+    box-sizing: content-box;
+}

@@ -1,0 +1,10 @@
+{
+    "hosting": {
+        "public": "dist/ResidencialOliva",
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ]
+    }
+}

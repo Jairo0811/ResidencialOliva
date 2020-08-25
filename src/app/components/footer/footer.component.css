@@ -1,0 +1,17 @@
+ .card-footer {
+     font-size: 20px;
+     background: var(--humoblanco);
+     text-align: center;
+     font-weight: bold;
+     padding: 10px;
+ }
+
+ p {
+     font-family: var(--monotype);
+     color: var(--negro);
+ }
+
+ span {
+     font-family: var(--sample);
+     color: var(--rojo);
+ }
