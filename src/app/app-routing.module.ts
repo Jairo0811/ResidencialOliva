@@ -1,3 +1,4 @@
+import { ForgotpasswordComponent } from './auth/forgotpassword/forgotpassword.component';
 import { RegistroComponent } from './auth/registro/registro.component';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './components/home/home.component';
@@ -8,6 +9,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
+  { path: 'forgotpassword', component: ForgotpasswordComponent },
 ];
 
 @NgModule({

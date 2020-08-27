@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -13,13 +13,12 @@ export class LoginComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl(''),
   });
-
   constructor(private authSvc: AuthService, private rooteo: Router) {}
 
   ngOnInit(): void {}
 
-   // INICIAR SESION CON USUARIO Y CLAVE
-   async iniciarSesion() {
+  // INICIAR SESION CON USUARIO Y CLAVE
+  async iniciarSesion() {
     const { email, password } = this.loginForm.value;
 
     try {

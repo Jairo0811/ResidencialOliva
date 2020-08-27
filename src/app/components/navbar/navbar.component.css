@@ -1,27 +1,99 @@
-.navbar {
-    min-height: 5rem;
-    background: var(--trigo);
-}
+    .navbar {
+        min-height: 5rem;
+        background: var(--trigo);
+    }
 
-.navbar-brand {
-    font-family: var(--sample);
-    font-weight: bold;
-    text-transform: uppercase;
-    color: var(--rojo);
-}
+    .navbar-brand {
+        font-family: var(--sample);
+        font-weight: bold;
+        text-transform: uppercase;
+        color: var(--rojo);
+    }
 
-.navbar-brand span {
-    font-family: var(--monotype);
-    text-transform: capitalize;
-    color: var(--negro);
-}
+    .navbar-brand span {
+        font-family: var(--monotype);
+        text-transform: capitalize;
+        color: var(--negro);
+    }
 
-.navbar-brand,
-.navbar-brand span {
-    font-size: 30px;
-}
+    .navbar-brand,
+    .navbar-brand span {
+        font-size: 30px;
+    }
 
-i {
-    color: var(--azul);
-    text-align: center;
-}
+    i {
+        color: var(--azul);
+        text-align: center;
+    }
+
+    @media only screen and (max-width:699px) {
+        .navbar {
+            min-height: 5rem;
+            background: var(--trigo);
+            font-size: 20px;
+            text-align: center;
+        }
+        .navbar-brand {
+            font-family: var(--sample);
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--rojo);
+            font-size: 45px;
+        }
+        .navbar-brand span {
+            font-family: var(--monotype);
+            text-transform: capitalize;
+            color: var(--negro);
+            font-size: 45px;
+        }
+        @media only screen and (max-width:699px) {
+            .navbar {
+                min-height: 5rem;
+                background: var(--trigo);
+                font-size: 20px;
+                text-align: center;
+            }
+            .navbar-brand {
+                font-family: var(--sample);
+                font-weight: bold;
+                text-transform: uppercase;
+                color: var(--rojo);
+                font-size: 20px;
+                text-align: center;
+            }
+            .navbar-brand span {
+                font-family: var(--monotype);
+                text-transform: capitalize;
+                color: var(--negro);
+                font-size: 20px;
+                text-align: center;
+            }
+        }
+        @media only screen and (min-width:900px) {
+            .navbar {
+                min-height: 5rem;
+                background: var(--trigo);
+                font-weight: 30px;
+                font-size: 55px;
+                text-align: center;
+            }
+            .navbar-toggler,
+            .navbar-toggler-icon {
+                font-weight: 30px;
+            }
+            .navbar-brand {
+                font-family: var(--sample);
+                font-weight: bold;
+                text-transform: uppercase;
+                color: var(--rojo);
+                text-align: center;
+            }
+            .navbar-brand span {
+                font-family: var(--monotype);
+                text-transform: capitalize;
+                color: var(--negro);
+                font-weight: 30px;
+                text-align: center;
+            }
+        }
+    }
