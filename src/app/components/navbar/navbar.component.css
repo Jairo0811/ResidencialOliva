@@ -46,29 +46,6 @@
             color: var(--negro);
             font-size: 45px;
         }
-        @media only screen and (max-width:699px) {
-            .navbar {
-                min-height: 5rem;
-                background: var(--trigo);
-                font-size: 20px;
-                text-align: center;
-            }
-            .navbar-brand {
-                font-family: var(--sample);
-                font-weight: bold;
-                text-transform: uppercase;
-                color: var(--rojo);
-                font-size: 20px;
-                text-align: center;
-            }
-            .navbar-brand span {
-                font-family: var(--monotype);
-                text-transform: capitalize;
-                color: var(--negro);
-                font-size: 20px;
-                text-align: center;
-            }
-        }
         @media only screen and (min-width:900px) {
             .navbar {
                 min-height: 5rem;

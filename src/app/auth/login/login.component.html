@@ -1,6 +1,7 @@
 <div class="container mt-5">
     <h1 class="text-center">Login</h1>
     <form [formGroup]="loginForm" (ngSubmit)="iniciarSesion()">
+
         <div class="form-group">
             <label for="email">Correo Electronico</label>
             <input type="email" class="form-control" placeholder="Ingresa tu correo electronico" formControlName="email" />

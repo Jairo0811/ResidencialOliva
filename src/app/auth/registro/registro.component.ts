@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
-
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -14,6 +13,7 @@ export class RegistroComponent implements OnInit {
     email: new FormControl(''),
     password: new FormControl(''),
   });
+
   constructor(private authSvc: AuthService, private rooteo: Router) {}
 
   ngOnInit(): void {}
@@ -21,7 +21,11 @@ export class RegistroComponent implements OnInit {
   async registro() {
     const { email, password } = this.registerForm.value;
 
-    const user = await this.authSvc.register(email, password);
+    try {
+      const user = await this.authSvc.register(email, password);
+    } catch (error) {
+      console.log(error);
+    }
 
     this.rooteo.navigate(['/']);
   }

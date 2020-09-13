@@ -1,10 +1,11 @@
 import { auth } from 'firebase/app';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { first } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
-  // public user: User;
+
 
   constructor(public auth: AngularFireAuth) {}
 
@@ -31,7 +32,6 @@ export class AuthService {
   }
 
   // INICIAR SESION CON GOOGLE
-
   async loginGoogle() {
     try {
       return this.auth.signInWithPopup(new auth.GoogleAuthProvider());
@@ -60,4 +60,6 @@ export class AuthService {
       console.log(error);
     }
   }
+
+
 }
