@@ -1,3 +1,13 @@
 h1 {
     text-transform: uppercase;
 }
+
+@media screen and (max-width: 461px) {
+    h1 {
+        margin-bottom: 20px;
+    }
+    .form-group,
+    .form-control {
+        text-align: center;
+    }
+}
