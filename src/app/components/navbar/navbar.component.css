@@ -21,6 +21,10 @@
     font-size: 30px;
 }
 
+.welcome {
+    font-weight: bold;
+}
+
 i {
     color: var(--azul);
     text-align: center;
@@ -38,6 +42,12 @@ i {
     }
     .navbar-toggler {
         font-size: 19px;
+    }
+    .welcome {
+        font-weight: bold;
+    }
+    strong {
+        color: var(--rojo);
     }
     ul {
         text-align: center;
