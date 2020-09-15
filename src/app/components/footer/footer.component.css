@@ -5,19 +5,19 @@
      font-weight: bold;
      padding: 10px;
  }
- 
+
  p {
      font-family: var(--monotype);
      color: var(--negro);
  }
- 
+
  span {
      font-family: var(--sample);
      color: var(--rojo);
  }
- 
- @media screen and (max-width: 461px) {
+
+ @media screen and (max-width: 499px) {
      p {
-         font-size: 15px;
+         font-size: 22px;
      }
  }
