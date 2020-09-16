@@ -1,3 +1,4 @@
+import { DepartamentosComponent } from './components/departamentos/departamentos.component';
 import { ForgotpasswordComponent } from './auth/forgotpassword/forgotpassword.component';
 import { RegistroComponent } from './auth/registro/registro.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'forgotpassword', component: ForgotpasswordComponent },
+  { path: 'departamentos', component: DepartamentosComponent },
 ];
 
 @NgModule({

@@ -6,7 +6,6 @@ import { first } from 'rxjs/operators';
 @Injectable()
 export class AuthService {
 
-
   constructor(public auth: AngularFireAuth) {}
 
   // OLVIDE CLAVE
@@ -60,6 +59,4 @@ export class AuthService {
       console.log(error);
     }
   }
-
-
 }

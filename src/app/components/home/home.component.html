@@ -17,8 +17,14 @@
             <h1 class="mt-5 animate__fadeInUp" style="animation-duration: 2s; text-align: center">
                 Nuestros departamentos
             </h1>
+
             <p class="mt-5 animate__fadeInUp" style="animation-duration: 2s; text-align: center">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe ipsa necessitatibus, aliquam impedit quidem animi iure libero aliquid? Quia animi nam commodi placeat. Doloremque temporibus, adipisci nobis ratione et beatae.
+
+                <button routerLink="/departamentos" class="btn-primary btn-block mt-5" *ngIf="user$| async as user;">
+            Ver más
+          </button>
+
             </p>
         </div>
     </div>
@@ -49,10 +55,10 @@
                         </a>
                     </div>
 
-                    <div class="col-sm">
+                    <!-- <div class="col-sm">
                         <a class="airbnb" href="https://es.airbnb.com/rooms/41618798?s=67&sharer_id=331742274&unique_share_id=40ccb98d-5548-49de-8a2f-bf46395be6dc" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-airbnb"> <p>Encuentra más en Airbnb.</p></i></a>
-                    </div>
+                    </div> -->
 
                     <div class="col-sm">
                         <a class="email" href="mailto:franklinrosario2007@gmail.com">

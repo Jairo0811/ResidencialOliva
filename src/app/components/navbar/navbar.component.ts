@@ -14,7 +14,6 @@ export class NavbarComponent {
   constructor(private authSvc: AuthService, private rooteo: Router) {}
 
 
-
   async cerrarSesion() {
     try {
       await this.authSvc.logout();
