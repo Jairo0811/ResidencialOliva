@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class NavbarComponent {
 
-
+  public isCollapsed = true;
   public user$: Observable<any> = this.authSvc.auth.user;
   constructor(private authSvc: AuthService, private rooteo: Router) {}
 

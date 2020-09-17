@@ -1,6 +1,8 @@
 .navbar {
     min-height: 5rem;
     background: var(--trigo);
+    overflow: hidden;
+    position: fixed;
 }
 
 .navbar-brand {
@@ -30,12 +32,11 @@ i {
     text-align: center;
 }
 
-@font-face {
-    font-family: var(--monotype), var(--sample);
-    src: url ('/src/styles.css');
-}
-
 @media screen and (max-width: 461px) {
+    .navbar {
+        overflow: hidden;
+        position: fixed;
+    }
     .navbar-brand,
     .navbar-brand span {
         font-size: 20px;

@@ -82,7 +82,7 @@
     
     .contact .info-container .ws i,
     .contact .info-container .email i {
-        width: 100%;
+        width: 50%;
         height: 80px;
         font-size: 100px;
     }
@@ -98,9 +98,8 @@
         color: var(--naranja);
     }
      */
-    
-    .contact .info-container .airbnb i {
-        width: 100%;
+    /* .contact .info-container .airbnb i {
+        width: 50%;
         height: 80px;
         font-size: 100px;
     }
@@ -109,7 +108,7 @@
         font-size: 17px;
         line-height: 35px;
         margin: 10px 0px;
-    }
+    } */
     
     iframe {
         width: 100%;
@@ -143,5 +142,11 @@
         p,
         .bg-apartments p {
             font-size: 20px;
+        }
+        .contact .info-container .ws i p,
+        .contact .info-container .email i p {
+            font-size: 20px;
+            line-height: 35px;
+            margin: 10px 0px;
         }
     }

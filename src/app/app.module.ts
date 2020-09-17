@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // PAYPAL//
 import { NgxPayPalModule } from 'ngx-paypal';
 // COMPONENTES//
@@ -40,6 +41,7 @@ import { AuthService } from './services/auth.service';
     NgxPayPalModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
+    NgbModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [AuthService],
