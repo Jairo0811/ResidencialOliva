@@ -5,8 +5,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// PAYPAL//
-import { NgxPayPalModule } from 'ngx-paypal';
 // COMPONENTES//
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -17,12 +15,13 @@ import { RegistroComponent } from './auth/registro/registro.component';
 import { ForgotpasswordComponent } from './auth/forgotpassword/forgotpassword.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { DepartamentosComponent } from './components/departamentos/departamentos.component';
+// SERVICIOS
+import { AuthService } from './services/auth.service';
 // GOOGLE FIREBASE//
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
-// SERVICIOS
-import { AuthService } from './services/auth.service';
-
+// PAYPAL//
+import { NgxPayPalModule } from 'ngx-paypal';
 @NgModule({
   declarations: [
     AppComponent,

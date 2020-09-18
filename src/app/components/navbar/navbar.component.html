@@ -1,45 +1,47 @@
 <nav class="navbar navbar-toggleable navbar-expand-lg navbar-light fixed-top" style="background-color: #fff1f0">
-    <a class="navbar-brand" routerLink="/">Residencial <span>Oliva Abad</span></a>
+    <a class="navbar-brand" routerLink="#">Residencial <span>Oliva Abad</span></a>
     <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" type="button" daa-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-    <div class="collapse navbar-collapse text-center " id=" navbarSupportedContent " [ngbCollapse]="isCollapsed ">
-        <ul class="navbar-nav ml-auto ">
-            <li class="nav-item nr-3 " *ngIf="user$| async as user; ">
-                <a class="nav-link welcome "> <i> Bienvenido/a:  <strong style="color: #ff0000; "> {{ user?.displayName}}</strong></i></a>
+    <div class="collapse navbar-collapse text-center" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item nr-3" *ngIf="user$| async as user;">
+                <a class="nav-link welcome">
+                    <i> Bienvenido/a: <strong style="color: #ff0000;">{{user?.displayName}}</strong></i>
+                </a>
             </li>
 
-
-            <li class="nav-item nr-3 ">
-                <a class="nav-link " id="about " href="#about ">
+            <li class="nav-item nr-3">
+                <a class="nav-link" id="about" href="#about">
                     <i class="fas fa-users "> ¿Quienes Somos?</i>
                 </a>
             </li>
 
-            <li class="nav-item nr-3 ">
-                <a class="nav-link " id="apartments " href="#apartments ">
-                    <i class="fas fa-building "> Nuestros departamentos</i>
+            <li class="nav-item nr-3">
+                <a class="nav-link" id="apartments" href="#apartments">
+                    <i class="fas fa-building"> Nuestros departamentos</i>
                 </a>
             </li>
 
-            <li class="nav-item nr-3 ">
-                <a class="nav-link " id="contact " href="#contact ">
-                    <i class="far fa-address-book "> Contacto</i>
+            <li class="nav-item nr-3">
+                <a class="nav-link" id="contact" href="#contact">
+                    <i class="far fa-address-book"> Contacto</i>
                 </a>
             </li>
 
             <ng-template #login>
-                <li class="nav-item nr-3 ">
-                    <a routerLink="/login " class="nav-link ">
-                        <i class="fas fa-sign-in-alt "> Iniciar Sesión</i>
+                <li class="nav-item nr-3">
+                    <a routerLink="/login" class="nav-link">
+                        <i class="fas fa-sign-in-alt"> Iniciar Sesión</i>
                     </a>
                 </li>
             </ng-template>
 
-            <li class="nav-item nr-3 " *ngIf="user$| async as user; else login ">
-                <a routerLink="/ " class="nav-link " (click)="cerrarSesion() ">
-                    <i class="fas fa-sign-out-alt "> Cerrar Sesión</i>
+            <li class="nav-item nr-3" *ngIf="user$| async as user; else login">
+                <a routerLink="/" class="nav-link" (click)="cerrarSesion()">
+                    <i class="fas fa-sign-out-alt"> Cerrar Sesión</i>
                 </a>
             </li>
         </ul>
