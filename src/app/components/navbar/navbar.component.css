@@ -23,6 +23,11 @@
     font-size: 30px;
 }
 
+
+/* .logo {
+    background-image: url(/assets/img/logo.png);
+} */
+
 .welcome {
     font-weight: bold;
 }
@@ -32,7 +37,21 @@ i {
     text-align: center;
 }
 
+.profile {
+    border-radius: 50%;
+}
+
 @media screen and (max-width: 461px) {
+    /* .logo {
+        width: 50px;
+        height: 50px
+    } */
+    .profile {
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
     .navbar {
         overflow: hidden;
         position: fixed;
@@ -46,9 +65,6 @@ i {
     }
     .welcome {
         font-weight: bold;
-    }
-    strong {
-        color: var(--rojo);
     }
     ul {
         text-align: center;
