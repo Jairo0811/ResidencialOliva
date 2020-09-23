@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome/fontawesome.module';
 // COMPONENTES//
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -22,6 +23,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 // PAYPAL//
 import { NgxPayPalModule } from 'ngx-paypal';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +43,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
     ReactiveFormsModule,
     AngularFireAuthModule,
     NgbModule,
+    FontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [AuthService],
