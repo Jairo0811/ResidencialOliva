@@ -1,3 +1,4 @@
+
 import { environment } from 'src/environments/environment';
 // MODULOS//
 import { BrowserModule } from '@angular/platform-browser';
@@ -5,7 +6,6 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome/fontawesome.module';
 // COMPONENTES//
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -23,6 +23,10 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 // PAYPAL//
 import { NgxPayPalModule } from 'ngx-paypal';
+import { AdminComponent } from './guards/admin/admin.component';
+import { EditorComponent } from './guards/editor/editor.component';
+import { SuscriptorComponent } from './guards/suscriptor/suscriptor.component';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,9 @@ import { NgxPayPalModule } from 'ngx-paypal';
     ForgotpasswordComponent,
     PaymentComponent,
     DepartamentosComponent,
+    AdminComponent,
+    EditorComponent,
+    SuscriptorComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,8 +49,8 @@ import { NgxPayPalModule } from 'ngx-paypal';
     NgxPayPalModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
+    AngularFirestoreModule,
     NgbModule,
-    FontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [AuthService],

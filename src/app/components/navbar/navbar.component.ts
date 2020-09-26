@@ -1,3 +1,4 @@
+import { User } from './../../models/user';
 import { Component} from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs';
 export class NavbarComponent {
 
   public isCollapsed = true;
-  public user$: Observable<any> = this.authSvc.auth.user;
+  public user$: Observable<User> = this.authSvc.auth.user;
   constructor(private authSvc: AuthService, private rooteo: Router) {}
 
 

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./departamentos.component.css']
 })
 export class DepartamentosComponent implements OnInit {
-
+  dinero = 275;
   constructor() { }
 
   ngOnInit(): void {

@@ -1,7 +1,7 @@
     .bg-1,
     .bg-2 {
         width: 100%;
-        height: 100vh;
+        height: 100%;
         padding: 5rem;
         background-blend-mode: screen;
         background-attachment: fixed;
@@ -9,39 +9,41 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
-    
+
     .bg-1 {
         background-image: url(/assets/img/bg.jpg);
     }
-    
+
     .bg-2 {
         background-image: url(/assets/img/bg2.jpg);
     }
-    
+
+   
+
     h1,
     h2 {
         font-size: 34px;
         font-weight: 700;
         margin-bottom: 0.8rem;
     }
-    
+
     p {
         font-size: 30px;
         font-family: var(--monotype);
     }
-    
+
     .bg-1,
     .bg-2,
     .bg-apartments,
     .contact {
         font-family: var(--sample);
     }
-    
+
     .contact {
         width: 100%;
         margin-top: 120px;
     }
-    
+
     .contact .info-container {
         width: 80%;
         margin: auto;
@@ -49,14 +51,14 @@
         justify-content: center;
         flex-direction: column;
     }
-    
+
     .contact .info-container h1 {
         font-size: 50px;
         font-weight: 400;
         color: var(--negro);
         margin-bottom: 20px;
     }
-    
+
     .bg-1,
     .bg-2,
     .contact,
@@ -69,24 +71,24 @@
     .contact .info-container .email i p {
         text-align: center;
     }
-    
+
     .contact .info-container .ws i,
     .contact .info-container .ws i p {
         color: var(--verde);
     }
-    
+
     .contact .info-container .email i,
     .contact .info-container .email i p {
         color: var(--rojo);
     }
-    
+
     .contact .info-container .ws i,
     .contact .info-container .email i {
         width: 50%;
         height: 80px;
         font-size: 100px;
     }
-    
+
     .contact .info-container .ws i p,
     .contact .info-container .email i p {
         font-size: 30px;
@@ -103,24 +105,28 @@
         height: 80px;
         font-size: 100px;
     }
-    
+
     .contact .info-container .airbnb i p {
         font-size: 17px;
         line-height: 35px;
         margin: 10px 0px;
     } */
-    
+
     iframe {
         width: 100%;
         height: 100%;
         border: 0;
     }
-    
+
+    .vermas {
+        border-radius: 100px;
+    }
+
     @media screen and (max-width: 499px) {
         .bg-1,
         .bg-2 {
             width: 100%;
-            height: 100vh;
+            height: 100%;
             padding: 5rem;
             background-blend-mode: screen;
             background-attachment: fixed;
