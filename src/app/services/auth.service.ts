@@ -1,11 +1,10 @@
 import { RoleValidator } from './../helpers/roleValidator';
 import { User } from './../models/user';
-import { auth } from 'firebase/app';
+// import { auth } from 'firebase/app';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { first, switchMap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
-
 import {
   AngularFirestore,
   AngularFirestoreDocument,
@@ -50,17 +49,17 @@ export class AuthService extends RoleValidator {
   }
 
   // INICIAR SESION CON GOOGLE
-  async loginGoogle(): Promise<User> {
-    try {
-      const { user } = await this.auth.signInWithPopup(
-        new auth.GoogleAuthProvider()
-      );
-      this.updateUserData(user);
-      return user;
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // async loginGoogle(): Promise<User> {
+  //   try {
+  //     const { user } = await this.auth.signInWithPopup(
+  //       new auth.GoogleAuthProvider()
+  //     );
+  //     this.updateUserData(user);
+  //     return user;
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
   // REGISTRO
   async register(email: string, password: string): Promise<User> {

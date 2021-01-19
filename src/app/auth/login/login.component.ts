@@ -34,14 +34,14 @@ export class LoginComponent implements OnInit {
 
   // INICIAR SESION CON GOOGLE
 
-  async loginGoogle() {
-    try {
-      const user = await this.authSvc.loginGoogle();
-      if (user) {
-        this.rooteo.navigate(['/']);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  // async loginGoogle() {
+  //   try {
+  //     const user = await this.authSvc.loginGoogle();
+  //     if (user) {
+  //       this.rooteo.navigate(['/']);
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 }
