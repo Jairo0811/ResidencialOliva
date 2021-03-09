@@ -12,6 +12,9 @@ import {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService extends RoleValidator {
+  loginGoogle() {
+    throw new Error('Method not implemented.');
+  }
   public user$: Observable<User>;
 
   constructor(public auth: AngularFireAuth, private afs: AngularFirestore) {
