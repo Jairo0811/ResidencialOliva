@@ -1,4 +1,11 @@
-.bg-1,
+.bg-1{  width: 100%;
+    height: 100%;
+    padding: 5rem;
+    background-blend-mode: screen;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;}
 .bg-2 {
     width: 100%;
     height: 100%;
@@ -120,7 +127,17 @@ iframe {
     .bg-2 {
         background: var(--gris);
     }
-    .bg-1,
+    .bg-1
+    
+    {    width: 100%;
+        height: 100%;
+        padding: 5rem;
+        background-blend-mode: screen;
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;}
     .bg-2 {
         width: 100%;
         height: 100%;
