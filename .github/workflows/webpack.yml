@@ -1,10 +1,10 @@
-name: Angular Build
+name: Angular Legacy Build
 
 on:
   push:
-    branches: [master, main, upgrade-angular]
+    branches: [master, upgrade-angular, legacy-angular-12]
   pull_request:
-    branches: [master, main]
+    branches: [master, upgrade-angular, legacy-angular-12]
 
 jobs:
   build:
@@ -14,14 +14,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js 16
         uses: actions/setup-node@v4
         with:
-          node-version: 24
-          cache: npm
+          node-version: 16.20.2
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --legacy-peer-deps --ignore-scripts
 
-      - name: Build Angular app
+      - name: Run NGCC
+        run: npx ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points
+
+      - name: Build Angular legacy app
         run: npm run build
