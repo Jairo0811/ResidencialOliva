@@ -1,0 +1,116 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.container-custom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 190px;
+}
+
+.logo img {
+  height: 120px;
+  width: auto;
+  display: block;
+}
+
+.menu {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  color: #444;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: #0f4c81;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn-login {
+  color: #0f4c81;
+  font-weight: 600;
+}
+
+.btn-book {
+  background: #0f4c81;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  transition: 0.3s;
+}
+
+.btn-book:hover {
+  background: #0077b6;
+}
+
+@media (max-width: 992px) {
+  .container-custom {
+    height: auto;
+    min-height: 150px;
+    padding: 18px 0;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .logo img {
+    height: 86px;
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn-login {
+    display: none;
+  }
+
+  .btn-book {
+    padding: 10px 22px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-custom {
+    min-height: 135px;
+    padding: 14px 0;
+  }
+
+  .logo img {
+    height: 76px;
+  }
+
+  .menu {
+    font-size: 14px;
+    gap: 12px 18px;
+  }
+
+  .btn-book {
+    font-size: 14px;
+    padding: 9px 20px;
+  }
+}
