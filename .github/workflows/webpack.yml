@@ -22,8 +22,11 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps --ignore-scripts
 
+      - name: Fix Angular 12 dependency versions
+        run: npm install typescript@4.3.5 tslib@2.3.1 @angular/fire@6.1.5 firebase@8.10.1 rxfire@6.0.0 --save-dev --legacy-peer-deps --ignore-scripts
+
       - name: Run NGCC
-        run: npx ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points
+        run: npx ngcc
 
       - name: Build Angular legacy app
         run: npm run build
