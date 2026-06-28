@@ -10,13 +10,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 190px;
+  height: 150px;
+  position: relative;
 }
 
 .logo img {
-  height: 120px;
+  height: 105px;
   width: auto;
   display: block;
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  gap: 35px;
 }
 
 .menu {
@@ -60,57 +67,90 @@
   background: #0077b6;
 }
 
-@media (max-width: 992px) {
-  .container-custom {
-    height: auto;
-    min-height: 150px;
-    padding: 18px 0;
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  .logo img {
-    height: 86px;
-  }
-
-  .menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px 24px;
-  }
-
-  .actions {
-    display: flex;
-    justify-content: center;
-  }
-
-  .btn-login {
-    display: none;
-  }
-
-  .btn-book {
-    padding: 10px 22px;
-  }
+.hamburger {
+  display: none;
+  border: none;
+  background: #0f4c81;
+  color: white;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  font-size: 24px;
+  cursor: pointer;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 992px) {
   .container-custom {
-    min-height: 135px;
-    padding: 14px 0;
+    height: 100px;
   }
 
   .logo img {
     height: 76px;
   }
 
-  .menu {
-    font-size: 14px;
-    gap: 12px 18px;
+  .hamburger {
+    display: grid;
+    place-items: center;
   }
 
+  .nav-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+    background: white;
+    padding: 25px;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  .nav-content.open {
+    display: flex;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .menu li {
+    border-bottom: 1px solid #eef2f6;
+  }
+
+  .menu a {
+    display: block;
+    padding: 14px 0;
+    font-size: 16px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-login,
   .btn-book {
-    font-size: 14px;
-    padding: 9px 20px;
+    text-align: center;
+    padding: 13px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container-custom {
+    height: 86px;
+  }
+
+  .logo img {
+    height: 62px;
+  }
+
+  .hamburger {
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
   }
 }

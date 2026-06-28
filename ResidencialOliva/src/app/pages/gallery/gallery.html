@@ -1,23 +1,26 @@
-<section class="gallery-hero">
+<section class="gallery-hero" aria-labelledby="gallery-title">
   <div class="overlay"></div>
 
   <div class="hero-content">
     <span>Edificios Oliva</span>
-    <h1>Galería</h1>
+    <h1 id="gallery-title">Galería</h1>
     <p>Descubre cada espacio de nuestros apartamentos.</p>
   </div>
 </section>
 
-<section class="gallery-section">
+<section class="gallery-section" aria-labelledby="gallery-section-title">
   <div class="container">
     <div class="gallery-header">
-      <h2>Explora nuestros espacios</h2>
+      <h2 id="gallery-section-title">Explora nuestros espacios</h2>
       <p>Conoce los apartamentos, áreas comunes y todo lo que ofrece Edificios Oliva.</p>
     </div>
 
-    <div class="filters">
+    <div class="filters" aria-label="Filtros de galería">
       @for (category of categories; track category) {
-        <button type="button">
+        <button
+          type="button"
+          [attr.aria-label]="'Filtrar galería por ' + category"
+        >
           {{ category }}
         </button>
       }
@@ -25,8 +28,16 @@
 
     <div class="gallery-grid">
       @for (image of images; track image; let i = $index) {
-        <button class="photo" type="button" (click)="openLightbox(i)">
-          <img [src]="image" alt="Galería Edificios Oliva" />
+        <button
+          class="photo"
+          type="button"
+          (click)="openLightbox(i)"
+          [attr.aria-label]="'Abrir imagen ' + (i + 1) + ' de la galería'"
+        >
+          <img
+            [src]="image"
+            [alt]="'Imagen ' + (i + 1) + ' de la galería de Edificios Oliva'"
+          />
         </button>
       }
     </div>
@@ -34,13 +45,42 @@
 </section>
 
 @if (selectedImage) {
-  <div class="lightbox">
-    <button class="lightbox-close" type="button" (click)="closeLightbox()">×</button>
+  <div
+    class="lightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Visor de imágenes de la galería"
+  >
+    <button
+      class="lightbox-close"
+      type="button"
+      (click)="closeLightbox()"
+      aria-label="Cerrar visor de imagen"
+    >
+      ×
+    </button>
 
-    <button class="lightbox-nav left" type="button" (click)="previousImage()">‹</button>
+    <button
+      class="lightbox-nav left"
+      type="button"
+      (click)="previousImage()"
+      aria-label="Ver imagen anterior"
+    >
+      ‹
+    </button>
 
-    <img [src]="selectedImage" alt="Imagen ampliada" />
+    <img
+      [src]="selectedImage"
+      alt="Imagen ampliada de la galería de Edificios Oliva"
+    />
 
-    <button class="lightbox-nav right" type="button" (click)="nextImage()">›</button>
+    <button
+      class="lightbox-nav right"
+      type="button"
+      (click)="nextImage()"
+      aria-label="Ver imagen siguiente"
+    >
+      ›
+    </button>
   </div>
 }

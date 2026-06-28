@@ -1,43 +1,58 @@
 <div class="admin-layout">
-  <aside class="sidebar">
+  <button
+    class="mobile-menu"
+    type="button"
+    aria-label="Abrir menú administrativo"
+  >
+    <i class="bi bi-list" aria-hidden="true"></i>
+  </button>
+
+  <aside class="sidebar" aria-label="Menú administrativo">
     <div class="logo">
-      <img src="/images/logo-edificios-oliva-white.png" alt="Edificios Oliva" />
+      <img
+        src="/images/logo-edificios-oliva-white.png"
+        alt="Logo de Edificios Oliva"
+      />
     </div>
-    <nav>
-      <a routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-        <i class="bi bi-speedometer2"></i>
+
+    <nav aria-label="Navegación del panel administrativo">
+      <a
+        routerLink="/admin"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="bi bi-speedometer2" aria-hidden="true"></i>
         Dashboard
       </a>
 
       <a routerLink="/admin/apartamentos" routerLinkActive="active">
-        <i class="bi bi-building"></i>
+        <i class="bi bi-building" aria-hidden="true"></i>
         Apartamentos
       </a>
 
       <a routerLink="/admin/reservas" routerLinkActive="active">
-        <i class="bi bi-calendar-check"></i>
+        <i class="bi bi-calendar-check" aria-hidden="true"></i>
         Reservas
       </a>
 
       <a routerLink="/admin/clientes" routerLinkActive="active">
-        <i class="bi bi-people-fill"></i>
+        <i class="bi bi-people-fill" aria-hidden="true"></i>
         Clientes
       </a>
 
       <a routerLink="/admin/pagos" routerLinkActive="active">
-        <i class="bi bi-credit-card"></i>
+        <i class="bi bi-credit-card" aria-hidden="true"></i>
         Pagos
       </a>
 
       <a routerLink="/admin/galeria" routerLinkActive="active">
-        <i class="bi bi-images"></i>
+        <i class="bi bi-images" aria-hidden="true"></i>
         Galería
       </a>
     </nav>
 
-    <button class="logout-btn" (click)="logout()">
-      <i class="bi bi-box-arrow-right"></i>
-
+    <button class="logout-btn" type="button" (click)="logout()">
+      <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
       Cerrar sesión
     </button>
   </aside>
@@ -45,11 +60,10 @@
   <main>
     <header class="topbar">
       <h1>Edificios Oliva</h1>
-
       <span>Panel Administrativo</span>
     </header>
 
-    <section class="content">
+    <section class="content" aria-label="Contenido del panel administrativo">
       <router-outlet></router-outlet>
     </section>
   </main>

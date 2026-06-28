@@ -1,10 +1,10 @@
-<section class="hero">
+<section class="hero" aria-labelledby="home-title">
   <div class="hero-overlay"></div>
 
   <div class="container hero-content">
     <span class="tag">Edificios Oliva · Bávaro, Punta Cana</span>
 
-    <h1>
+    <h1 id="home-title">
       Tu estadía cómoda<br />
       en el corazón de Bávaro.
     </h1>
@@ -21,22 +21,24 @@
   </div>
 </section>
 
-<section class="search-card">
+<section class="search-card" aria-labelledby="busqueda-disponibilidad">
   <div class="container">
+    <h2 id="busqueda-disponibilidad" class="sr-only">Buscar disponibilidad</h2>
+
     <div class="search-grid">
       <div>
-        <label>Entrada</label>
-        <input type="date" />
+        <label for="home-checkin">Entrada</label>
+        <input id="home-checkin" name="checkin" type="date" />
       </div>
 
       <div>
-        <label>Salida</label>
-        <input type="date" />
+        <label for="home-checkout">Salida</label>
+        <input id="home-checkout" name="checkout" type="date" />
       </div>
 
       <div>
-        <label>Huéspedes</label>
-        <select>
+        <label for="home-guests">Huéspedes</label>
+        <select id="home-guests" name="guests">
           <option>1 Persona</option>
           <option>2 Personas</option>
           <option>3 Personas</option>
@@ -45,16 +47,18 @@
         </select>
       </div>
 
-      <button>Consultar disponibilidad</button>
+      <button type="button" aria-label="Consultar disponibilidad de apartamentos">
+        Consultar disponibilidad
+      </button>
     </div>
   </div>
 </section>
 
-<section class="featured-apartments">
+<section class="featured-apartments" aria-labelledby="featured-title">
   <div class="container">
     <div class="section-header">
       <span>Alojamientos</span>
-      <h2>Departamentos para estancias familiares</h2>
+      <h2 id="featured-title">Departamentos para estancias familiares</h2>
       <p>
         Espacios pensados para descansar, cocinar, compartir y moverte con facilidad por Bávaro y
         Punta Cana.
@@ -65,7 +69,7 @@
       <article class="apartment-card">
         <img
           src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"
-          alt="Apartamento de una habitación"
+          alt="Habitación moderna de un apartamento ejecutivo"
         />
 
         <div class="card-body">
@@ -76,21 +80,23 @@
 
           <p>Ideal para parejas, viajeros solos o estadías cortas cerca de la zona turística.</p>
 
-          <div class="features">
+          <div class="features" aria-label="Características del apartamento ejecutivo">
             <span>2 huéspedes</span>
             <span>1 habitación</span>
             <span>Cocina</span>
             <span>WiFi</span>
           </div>
 
-          <a routerLink="/departamentos/1">Ver detalles</a>
+          <a routerLink="/departamentos/1" aria-label="Ver detalles del Apartamento Ejecutivo">
+            Ver detalles
+          </a>
         </div>
       </article>
 
       <article class="apartment-card">
         <img
           src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2"
-          alt="Apartamento familiar"
+          alt="Sala moderna de un apartamento familiar"
         />
 
         <div class="card-body">
@@ -101,21 +107,23 @@
 
           <p>Amplio y cómodo para familias que desean una estadía práctica en Punta Cana.</p>
 
-          <div class="features">
+          <div class="features" aria-label="Características del apartamento familiar">
             <span>4 huéspedes</span>
             <span>2 habitaciones</span>
             <span>Parqueo</span>
             <span>A/C</span>
           </div>
 
-          <a routerLink="/departamentos/2">Ver detalles</a>
+          <a routerLink="/departamentos/2" aria-label="Ver detalles del Apartamento Familiar">
+            Ver detalles
+          </a>
         </div>
       </article>
 
       <article class="apartment-card">
         <img
           src="https://images.unsplash.com/photo-1613977257363-707ba9348227"
-          alt="Apartamento premium"
+          alt="Interior premium de apartamento para estadía prolongada"
         />
 
         <div class="card-body">
@@ -126,25 +134,27 @@
 
           <p>Una opción más completa para estancias largas, trabajo remoto o vacaciones familiares.</p>
 
-          <div class="features">
+          <div class="features" aria-label="Características de la estadía premium">
             <span>5 huéspedes</span>
             <span>2 habitaciones</span>
             <span>Lavadora</span>
             <span>Seguridad</span>
           </div>
 
-          <a routerLink="/departamentos/3">Ver detalles</a>
+          <a routerLink="/departamentos/3" aria-label="Ver detalles de la Estadía Premium">
+            Ver detalles
+          </a>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<section class="amenities">
+<section class="amenities" aria-labelledby="amenities-title">
   <div class="container">
     <div class="section-header">
       <span>Comodidades</span>
-      <h2>Lo esencial para sentirte como en casa</h2>
+      <h2 id="amenities-title">Lo esencial para sentirte como en casa</h2>
       <p>
         Comodidades prácticas para familias, turistas y personas que buscan tranquilidad durante su
         estadía.
@@ -153,37 +163,37 @@
 
     <div class="amenities-grid">
       <div class="amenity-card">
-        <i class="bi bi-wifi"></i>
+        <i class="bi bi-wifi" aria-hidden="true"></i>
         <h3>WiFi</h3>
         <p>Conexión para comunicarte, trabajar o disfrutar contenido en línea.</p>
       </div>
 
       <div class="amenity-card">
-        <i class="bi bi-car-front"></i>
+        <i class="bi bi-car-front" aria-hidden="true"></i>
         <h3>Parqueo</h3>
         <p>Espacio para vehículo, ideal si planeas moverte por Bávaro y Punta Cana.</p>
       </div>
 
       <div class="amenity-card">
-        <i class="bi bi-snow"></i>
+        <i class="bi bi-snow" aria-hidden="true"></i>
         <h3>Aire acondicionado</h3>
         <p>Ambientes frescos para descansar cómodamente después de un día de playa.</p>
       </div>
 
       <div class="amenity-card">
-        <i class="bi bi-house-heart"></i>
+        <i class="bi bi-house-heart" aria-hidden="true"></i>
         <h3>Equipado</h3>
         <p>Cocina, sala y espacios listos para estancias cortas o prolongadas.</p>
       </div>
 
       <div class="amenity-card">
-        <i class="bi bi-shield-check"></i>
+        <i class="bi bi-shield-check" aria-hidden="true"></i>
         <h3>Zona tranquila</h3>
         <p>Ubicación residencial pensada para descansar con mayor privacidad.</p>
       </div>
 
       <div class="amenity-card">
-        <i class="bi bi-geo-alt"></i>
+        <i class="bi bi-geo-alt" aria-hidden="true"></i>
         <h3>Buena ubicación</h3>
         <p>Cerca de supermercados, restaurantes, playas y zonas comerciales.</p>
       </div>
@@ -191,12 +201,12 @@
   </div>
 </section>
 
-<section class="location-section">
+<section class="location-section" aria-labelledby="location-title">
   <div class="container location-content">
     <div>
       <span class="section-kicker">Ubicación</span>
 
-      <h2>Todo queda cerca desde Edificios Oliva</h2>
+      <h2 id="location-title">Todo queda cerca desde Edificios Oliva</h2>
 
       <p>
         Ubicado en el área de El Ejecutivo, Bávaro, Residencial Oliva permite moverte con facilidad
@@ -204,15 +214,16 @@
       </p>
 
       <div class="location-list">
-        <span><i class="bi bi-basket-fill"></i> Cerca de supermercados y comercios</span>
-        <span><i class="bi bi-cup-hot-fill"></i> Restaurantes y servicios a pocos minutos</span>
-        <span><i class="bi bi-sun-fill"></i> Acceso rápido a playas de Bávaro</span>
-        <span><i class="bi bi-airplane-fill"></i> Conexión rápida al Aeropuerto Internacional</span>
+        <span><i class="bi bi-basket-fill" aria-hidden="true"></i> Cerca de supermercados y comercios</span>
+        <span><i class="bi bi-cup-hot-fill" aria-hidden="true"></i> Restaurantes y servicios a pocos minutos</span>
+        <span><i class="bi bi-sun-fill" aria-hidden="true"></i> Acceso rápido a playas de Bávaro</span>
+        <span><i class="bi bi-airplane-fill" aria-hidden="true"></i> Conexión rápida al Aeropuerto Internacional</span>
       </div>
     </div>
 
     <div class="map-card">
       <iframe
+        title="Mapa de ubicación de Edificios Oliva en Bávaro, Punta Cana"
         src="https://www.google.com/maps?q=18.6644942,-68.4434565&z=16&output=embed"
         loading="lazy"
         allowfullscreen
@@ -222,11 +233,11 @@
   </div>
 </section>
 
-<section class="nearby-section">
+<section class="nearby-section" aria-labelledby="nearby-title">
   <div class="container">
     <div class="section-header">
       <span>Alrededores</span>
-      <h2>Referencias cercanas</h2>
+      <h2 id="nearby-title">Referencias cercanas</h2>
       <p>
         Lugares de interés que hacen la ubicación práctica para turismo, diligencias y estadías
         familiares.
@@ -235,25 +246,25 @@
 
     <div class="nearby-grid">
       <div class="nearby-card">
-        <i class="bi bi-water"></i>
+        <i class="bi bi-water" aria-hidden="true"></i>
         <h3>Playas de Bávaro</h3>
         <p>Acceso en vehículo a zonas de playa, restaurantes y actividades turísticas.</p>
       </div>
 
       <div class="nearby-card">
-        <i class="bi bi-shop"></i>
+        <i class="bi bi-shop" aria-hidden="true"></i>
         <h3>Supermercados</h3>
         <p>Opciones cercanas para compras básicas durante la estadía.</p>
       </div>
 
       <div class="nearby-card">
-        <i class="bi bi-building"></i>
+        <i class="bi bi-building" aria-hidden="true"></i>
         <h3>Downtown Punta Cana</h3>
         <p>Área comercial con tiendas, restaurantes, entretenimiento y servicios.</p>
       </div>
 
       <div class="nearby-card">
-        <i class="bi bi-hospital"></i>
+        <i class="bi bi-hospital" aria-hidden="true"></i>
         <h3>Centros médicos</h3>
         <p>Servicios de salud disponibles en la zona de Bávaro y Punta Cana.</p>
       </div>
@@ -261,50 +272,46 @@
   </div>
 </section>
 
-<section class="gallery-preview">
+<section class="gallery-preview" aria-labelledby="gallery-preview-title">
   <div class="container">
     <div class="section-header">
       <span>Galería</span>
-      <h2>Un vistazo a la experiencia</h2>
+      <h2 id="gallery-preview-title">Un vistazo a la experiencia</h2>
       <p>Imágenes de referencia para transmitir la comodidad y estilo que buscamos en la versión 2026.</p>
     </div>
 
     <div class="gallery-grid">
-      <img
-        class="large"
-        src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"
-        alt="Interior moderno"
-      />
-      <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3" alt="Sala" />
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Residencial" />
-      <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d" alt="Habitación" />
-      <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea" alt="Cocina" />
+      <img class="large" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c" alt="Interior moderno de apartamento" />
+      <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3" alt="Sala de apartamento moderno" />
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Exterior de residencial moderno" />
+      <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d" alt="Habitación moderna de apartamento" />
+      <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea" alt="Cocina equipada moderna" />
     </div>
   </div>
 </section>
 
-<section class="testimonials">
+<section class="testimonials" aria-labelledby="testimonials-title">
   <div class="container">
     <div class="section-header">
       <span>Opiniones</span>
-      <h2>Experiencias memorables</h2>
+      <h2 id="testimonials-title">Experiencias memorables</h2>
     </div>
 
     <div class="testimonials-grid">
       <article class="testimonial-card">
-        <div class="stars">★★★★★</div>
+        <div class="stars" aria-label="Calificación de cinco estrellas">★★★★★</div>
         <p>“Un lugar tranquilo, limpio y perfecto para descansar en familia.”</p>
         <strong>María G.</strong>
       </article>
 
       <article class="testimonial-card">
-        <div class="stars">★★★★★</div>
+        <div class="stars" aria-label="Calificación de cinco estrellas">★★★★★</div>
         <p>“Muy buena ubicación y el apartamento tenía todo lo necesario.”</p>
         <strong>Carlos R.</strong>
       </article>
 
       <article class="testimonial-card">
-        <div class="stars">★★★★★</div>
+        <div class="stars" aria-label="Calificación de cinco estrellas">★★★★★</div>
         <p>“Excelente opción para pasar unos días en Punta Cana sin complicaciones.”</p>
         <strong>Laura M.</strong>
       </article>
@@ -312,15 +319,13 @@
   </div>
 </section>
 
-<section class="final-cta">
+<section class="final-cta" aria-labelledby="final-cta-title">
   <div class="cta-overlay"></div>
 
   <div class="container cta-content">
     <span>Edificios Oliva 2026</span>
-    <h2>Reserva con tranquilidad y disfruta Punta Cana a tu ritmo.</h2>
-    <p>
-      Contáctanos para confirmar disponibilidad, tarifas y condiciones de estadía.
-    </p>
+    <h2 id="final-cta-title">Reserva con tranquilidad y disfruta Punta Cana a tu ritmo.</h2>
+    <p>Contáctanos para confirmar disponibilidad, tarifas y condiciones de estadía.</p>
 
     <div class="cta-actions">
       <a routerLink="/reservar">Consultar disponibilidad</a>

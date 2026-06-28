@@ -2,120 +2,186 @@
   <div class="page-header">
     <div>
       <h1>Apartamentos</h1>
-
       <p>Administra todos los apartamentos disponibles.</p>
     </div>
 
-    <button class="new-btn" (click)="openCreateForm()">
-      <i class="bi bi-plus-circle"></i>
-
+    <button class="new-btn" type="button" (click)="openCreateForm()" aria-label="Crear nuevo apartamento">
+      <i class="bi bi-plus-circle" aria-hidden="true"></i>
       Nuevo Apartamento
     </button>
   </div>
 
-  <div class="table-card">
+  <div class="table-card" role="region" aria-label="Tabla de apartamentos" tabindex="0">
     <table>
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Precio</th>
-          <th>Capacidad</th>
-          <th>Estado</th>
-          <th>Acciones</th>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Capacidad</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Acciones</th>
         </tr>
       </thead>
 
       <tbody>
         @for (apartment of apartments; track apartment.id) {
-          <tr>
-            <td>#{{ apartment.id }}</td>
+        <tr>
+          <td>#{{ apartment.id }}</td>
+          <td>{{ apartment.name }}</td>
+          <td>US$ {{ apartment.price }}</td>
+          <td>{{ apartment.guests }} huéspedes</td>
 
-            <td>{{ apartment.name }}</td>
+          <td>
+            @if (apartment.status === 'Disponible') {
+            <span class="available">{{ apartment.status }}</span>
+            } @else {
+            <span class="occupied">{{ apartment.status }}</span>
+            }
+          </td>
 
-            <td>US$ {{ apartment.price }}</td>
+          <td>
+            <button class="edit" type="button" (click)="openEditForm(apartment)"
+              [attr.aria-label]="'Editar apartamento ' + apartment.name">
+              <i class="bi bi-pencil-square" aria-hidden="true"></i>
+            </button>
 
-            <td>{{ apartment.guests }} huéspedes</td>
-
-            <td>
-              @if (apartment.status === 'Disponible') {
-                <span class="available">
-                  {{ apartment.status }}
-                </span>
-              } @else {
-                <span class="occupied">
-                  {{ apartment.status }}
-                </span>
-              }
-            </td>
-
-            <td>
-              <button class="edit" (click)="openEditForm()">
-                <i class="bi bi-pencil-square"></i>
-              </button>
-
-              <button class="delete">
-                <i class="bi bi-trash"></i>
-              </button>
-            </td>
-          </tr>
+            <button class="delete" type="button" (click)="deleteApartment(apartment.id!)"
+              [attr.aria-label]="'Eliminar apartamento ' + apartment.name">
+              <i class="bi bi-trash" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
         }
       </tbody>
     </table>
   </div>
+
   @if (showForm) {
   <div class="modal-backdrop">
-    <div class="apartment-modal">
+    <div class="apartment-modal" role="dialog" aria-modal="true" aria-labelledby="apartment-modal-title">
       <div class="modal-header">
-        <h2>
+        <h2 id="apartment-modal-title">
           @if (editingMode) {
-            Editar apartamento
+          Editar apartamento
           } @else {
-            Nuevo apartamento
+          Nuevo apartamento
           }
         </h2>
 
-        <button type="button" class="close-btn" (click)="closeForm()">×</button>
+        <button type="button" class="close-btn" (click)="closeForm()" aria-label="Cerrar formulario de apartamento">
+          ×
+        </button>
       </div>
 
-      <form class="apartment-form">
+      <form class="apartment-form" (ngSubmit)="saveApartment()">
         <div class="form-grid">
-          <input type="text" placeholder="Nombre del apartamento" />
-          <input type="number" placeholder="Precio por noche" />
-          <input type="number" placeholder="Cantidad de huéspedes" />
-          <input type="number" placeholder="Habitaciones" />
-          <input type="number" placeholder="Baños" />
+          <div>
+            <label for="apartment-name">Nombre del apartamento</label>
+            <input id="apartment-name" type="text" [(ngModel)]="apartmentForm.name" name="name" required
+              aria-required="true" />
+          </div>
 
-          <select>
-            <option>Disponible</option>
-            <option>Ocupado</option>
-            <option>Mantenimiento</option>
-          </select>
+          <div>
+            <label for="apartment-price">Precio por noche</label>
+            <input id="apartment-price" type="number" [(ngModel)]="apartmentForm.price" name="price" min="0" required
+              aria-required="true" />
+          </div>
+
+          <div>
+            <label for="apartment-guests">Cantidad de huéspedes</label>
+            <input id="apartment-guests" type="number" [(ngModel)]="apartmentForm.guests" name="guests" min="1" required
+              aria-required="true" />
+          </div>
+
+          <div>
+            <label for="apartment-bedrooms">Habitaciones</label>
+            <input id="apartment-bedrooms" type="number" [(ngModel)]="apartmentForm.bedrooms" name="bedrooms" min="1"
+              required aria-required="true" />
+          </div>
+
+          <div>
+            <label for="apartment-bathrooms">Baños</label>
+            <input id="apartment-bathrooms" type="number" [(ngModel)]="apartmentForm.bathrooms" name="bathrooms" min="1"
+              required aria-required="true" />
+          </div>
+
+          <div>
+            <label for="apartment-location">Ubicación</label>
+            <input id="apartment-location" type="text" [(ngModel)]="apartmentForm.location" name="location" required
+              aria-required="true" />
+          </div>
+
+          <div>
+            <label for="apartment-status">Estado</label>
+            <select id="apartment-status" [(ngModel)]="apartmentForm.status" name="status" required
+              aria-required="true">
+              <option value="Disponible">Disponible</option>
+              <option value="Ocupado">Ocupado</option>
+              <option value="Mantenimiento">Mantenimiento</option>
+            </select>
+          </div>
         </div>
 
-        <textarea rows="5" placeholder="Descripción del apartamento"></textarea>
-
-        <div class="amenities-box">
-          <label><input type="checkbox" /> WiFi</label>
-          <label><input type="checkbox" /> Parqueo</label>
-          <label><input type="checkbox" /> Aire acondicionado</label>
-          <label><input type="checkbox" /> Cocina equipada</label>
-          <label><input type="checkbox" /> Piscina</label>
-          <label><input type="checkbox" /> Seguridad</label>
+        <div>
+          <label for="apartment-description">Descripción del apartamento</label>
+          <textarea id="apartment-description" rows="5" [(ngModel)]="apartmentForm.description" name="description"
+            required aria-required="true"></textarea>
         </div>
 
-        <div class="upload-box">
-          <i class="bi bi-cloud-arrow-up"></i>
+        <fieldset class="amenities-box">
+          <legend>Amenidades</legend>
+
+          <label>
+            <input type="checkbox" [checked]="hasAmenity('WiFi')" (change)="toggleAmenity('WiFi', $event)" />
+            WiFi
+          </label>
+
+          <label>
+            <input type="checkbox" [checked]="hasAmenity('Parqueo')" (change)="toggleAmenity('Parqueo', $event)" />
+            Parqueo
+          </label>
+
+          <label>
+            <input type="checkbox" [checked]="hasAmenity('Aire acondicionado')"
+              (change)="toggleAmenity('Aire acondicionado', $event)" />
+            Aire acondicionado
+          </label>
+
+          <label>
+            <input type="checkbox" [checked]="hasAmenity('Cocina equipada')"
+              (change)="toggleAmenity('Cocina equipada', $event)" />
+            Cocina equipada
+          </label>
+
+          <label>
+            <input type="checkbox" [checked]="hasAmenity('Piscina')" (change)="toggleAmenity('Piscina', $event)" />
+            Piscina
+          </label>
+
+          <label>
+            <input type="checkbox" [checked]="hasAmenity('Seguridad')" (change)="toggleAmenity('Seguridad', $event)" />
+            Seguridad
+          </label>
+        </fieldset>
+
+        <div class="upload-box" aria-label="Subida de imágenes del apartamento">
+          <i class="bi bi-cloud-arrow-up" aria-hidden="true"></i>
           <p>Subir imágenes del apartamento</p>
           <small>Más adelante lo conectaremos con Firebase Storage</small>
         </div>
 
         <div class="modal-actions">
-          <button type="button" class="cancel-btn" (click)="closeForm()">Cancelar</button>
-          <button type="button" class="save-btn">Guardar apartamento</button>
+          <button type="button" class="cancel-btn" (click)="closeForm()">
+            Cancelar
+          </button>
+
+          <button type="submit" class="save-btn">
+            Guardar apartamento
+          </button>
         </div>
       </form>
     </div>
   </div>
-}
+  }
 </div>
