@@ -240,11 +240,16 @@ http://localhost:4200
 
 # 💡 Historia del Proyecto
 
-Edificios Oliva representa la evolución de uno de los primeros proyectos personales desarrollados por el autor.
+Este proyecto comenzó en **2019** con el objetivo de crear una página web para promocionar unos apartamentos familiares ubicados en **Bávaro, Punta Cana, República Dominicana**, ofreciendo a los visitantes una forma sencilla de conocer las instalaciones, explorar los apartamentos disponibles, consultar información relevante y facilitar el contacto para futuras reservas.
 
-Lo que inició en 2019 como un sitio web básico, fue reconstruido completamente en 2026 utilizando tecnologías modernas como Angular, Firebase Authentication y Cloud Firestore, aplicando mejores prácticas de arquitectura, diseño y experiencia de usuario.
+Aunque nunca llegó a implementarse oficialmente, el desarrollo permitió experimentar con **Angular**, **Firebase** y diversas tecnologías web modernas, convirtiéndose en uno de los primeros proyectos personales del autor y en una pieza importante dentro de su crecimiento profesional como desarrollador de software.
 
-El proyecto original permanecerá disponible como **Legacy Version**, mientras que esta edición representa la evolución definitiva del sistema.
+En **2026**, el proyecto fue reconstruido completamente desde cero, manteniendo la esencia de la idea original, pero incorporando una arquitectura moderna, un diseño totalmente renovado, una mejor experiencia de usuario y tecnologías actuales como **Angular 20**, **Firebase Authentication** y **Cloud Firestore**.
+
+Esta nueva versión tiene como objetivo evolucionar hacia una plataforma integral para la gestión de apartamentos vacacionales, permitiendo administrar reservas, clientes, apartamentos, pagos y contenido mediante un panel administrativo seguro, escalable y preparado para futuras funcionalidades.
+
+El proyecto original permanecerá disponible como **Legacy Version**, mientras que esta edición representa la evolución definitiva de **Edificios Oliva**, reflejando la experiencia, las buenas prácticas y los conocimientos adquiridos por el autor a lo largo de los años.
+
 
 ---
 
