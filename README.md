@@ -1,107 +1,110 @@
-# 🏠 🏝️ Edificios Oliva 🫒 🏡
+# 🏠🏝️ Edificios Oliva 🫒🏡
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=angular,ts,html,css,bootstrap&perline=5" />
+  <img src="https://skillicons.dev/icons?i=angular,ts,html,css,bootstrap,firebase&perline=6" />
 </p>
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=vscode,git,github,npm,firebase&perline=5" />
+  <img src="https://skillicons.dev/icons?i=vscode,git,github,npm&perline=4" />
 </p>
 
 <p align="center">
-<strong>Sitio web moderno para alquiler de apartamentos vacacionales en Punta Cana.</strong><br>
-Desarrollado con Angular.
+
+# Plataforma web para alquiler de apartamentos vacacionales
+
+**Bávaro • Punta Cana • República Dominicana**
+
+Desarrollado con Angular + Firebase
+
 </p>
 
 ---
 
 # 📖 Descripción
 
-**Edificios Oliva** es una plataforma web diseñada para promocionar y gestionar el alquiler de apartamentos vacacionales ubicados en **Bávaro, Punta Cana, República Dominicana**.
+**Edificios Oliva** es una plataforma web desarrollada para la promoción y administración de apartamentos vacacionales ubicados en **Bávaro, Punta Cana**.
 
-El proyecto busca ofrecer una experiencia moderna para los visitantes, permitiéndoles explorar los apartamentos disponibles, conocer las amenidades, visualizar fotografías, consultar la ubicación y realizar solicitudes de reserva desde cualquier dispositivo.
+El objetivo del proyecto es ofrecer una experiencia moderna tanto para los visitantes como para los administradores, permitiendo consultar apartamentos, realizar reservas y administrar toda la información desde un panel privado.
 
-El sistema nació originalmente en **2019** bajo el nombre **Residencial Oliva**, como un proyecto personal desarrollado durante el proceso de aprendizaje de Angular y Firebase.
+El proyecto nació originalmente en **2019** bajo el nombre **Residencial Oliva**, como uno de los primeros desarrollos personales del autor utilizando Angular.
 
-Aunque el proyecto nunca llegó a utilizarse comercialmente, representó uno de los primeros desarrollos web completos realizados por su autor.
-
-En **2026** comenzó una reconstrucción completa utilizando Angular moderno, una nueva arquitectura, un diseño totalmente renovado y mejores prácticas de desarrollo, preservando el proyecto original como versión **Legacy**.
+En **2026** comenzó una reconstrucción completa utilizando Angular moderno, Firebase y una arquitectura totalmente renovada, preservando el proyecto original como versión **Legacy**.
 
 ---
 
-# 🛠️ Tecnologías Utilizadas
+# ✨ Características
+
+## 🌐 Sitio Web
+
+* ✅ Landing Page moderna
+* ✅ Hero principal
+* ✅ Responsive Design
+* ✅ Navegación optimizada
+* ✅ Sección de apartamentos
+* ✅ Galería fotográfica
+* ✅ Información de contacto
+* ✅ Google Maps
+* ✅ Animaciones suaves
+* ✅ Diseño moderno
+
+---
+
+## 🔐 Panel Administrativo
+
+* ✅ Inicio de sesión con correo y contraseña
+* ✅ Inicio de sesión con Google
+* ✅ Firebase Authentication
+* ✅ Cloud Firestore
+* ✅ Gestión de perfiles
+* ✅ Roles de usuario
+* ✅ Dashboard administrativo moderno
+* 🔄 Gestión de apartamentos
+* 🔄 Gestión de reservas
+* 🔄 Gestión de clientes
+* 🔄 Gestión de pagos
+
+---
+
+# 🛠️ Tecnologías
 
 <p align="center">
+
 <img src="https://skillicons.dev/icons?i=angular,ts,html,css,bootstrap,firebase,vscode,git,github,npm" />
+
 </p>
 
-| Tecnología                 | Descripción             |
-| -------------------------- | ----------------------- |
-| 🅰️ Angular                | Framework Frontend      |
-| 📘 TypeScript              | Desarrollo de la lógica |
-| 🌐 HTML5                   | Estructura              |
-| 🎨 CSS3                    | Diseño personalizado    |
-| 🅱️ Bootstrap              | Componentes responsivos |
-| 🔥 Firebase                | Backend y autenticación |
-| ☁️ Firestore               | Base de datos           |
-| 🔐 Firebase Authentication | Inicio de sesión        |
-| 🗺️ Google Maps            | Ubicación del proyecto  |
+| Tecnología              | Uso                  |
+| ----------------------- | -------------------- |
+| Angular                 | Frontend             |
+| TypeScript              | Lógica               |
+| HTML5                   | Estructura           |
+| CSS3                    | Diseño               |
+| Bootstrap               | Componentes UI       |
+| Firebase Authentication | Autenticación        |
+| Cloud Firestore         | Base de datos        |
+| Google Maps             | Ubicación            |
+| Git                     | Control de versiones |
+| GitHub                  | Repositorio          |
 
 ---
 
-# ✨ Funcionalidades
+# 🔐 Autenticación
 
-## 🏠 Página Principal
+El sistema utiliza **Firebase Authentication** como proveedor principal de autenticación.
 
-* ✅ Hero moderno
-* ✅ Diseño responsive
-* ✅ Navegación optimizada
-* ✅ Animaciones suaves
-* ✅ Efecto Parallax
-* ✅ Footer personalizado
+Actualmente soporta:
 
-## 🏢 Apartamentos
-
-* ✅ Catálogo de apartamentos
-* ✅ Información detallada
-* ✅ Fotografías
-* ✅ Características
-* ✅ Precio
-* ✅ Disponibilidad
-
-## 📍 Ubicación
-
-* ✅ Google Maps integrado
-* ✅ Información del entorno
-* ✅ Lugares cercanos
-* ✅ Acceso rápido
-
-## 📷 Galería
-
-* ✅ Fotografías del residencial
-* ✅ Vista previa de apartamentos
-* ✅ Diseño tipo Masonry
-
-## 📞 Contacto
-
-* ✅ Información de contacto
-* ✅ Formulario
-* ✅ Ubicación
-
-## 👤 Administración
-
-* ✅ Inicio de sesión
-* ✅ Panel administrativo
-* ✅ Gestión de apartamentos
-* ✅ Gestión de reservas
+* Inicio de sesión mediante correo y contraseña.
+* Inicio de sesión mediante Google.
+* Gestión de perfiles en Cloud Firestore.
+* Protección del panel administrativo mediante Auth Guards.
+* Roles de administrador.
 
 ---
 
 # 📂 Arquitectura
 
 ```text
-EdificiosOliva
-
 src
 │
 ├── app
@@ -109,23 +112,30 @@ src
 │   │   ├── guards
 │   │   ├── models
 │   │   └── services
+│   │       ├── auth.service.ts
+│   │       ├── apartment.service.ts
+│   │       ├── reservation.service.ts
+│   │       └── firebase.service.ts
 │   │
 │   ├── pages
 │   │   ├── home
 │   │   ├── apartments
 │   │   ├── apartment-detail
+│   │   ├── gallery
 │   │   ├── contact
+│   │   ├── login
 │   │   └── admin
 │   │
 │   └── shared
 │       ├── navbar
-│       └── footer
+│       ├── footer
+│       └── components
 │
 ├── public
 │   └── images
 │
-├── angular.json
-├── package.json
+├── environments
+│
 └── README.md
 ```
 
@@ -133,98 +143,108 @@ src
 
 # 🚀 Instalación
 
-## 📥 Clonar el proyecto
+## Clonar el repositorio
 
 ```bash
 git clone https://github.com/Jairo0811/ResidencialOliva.git
 ```
 
-Entrar a la carpeta:
+Entrar al proyecto
 
 ```bash
 cd ResidencialOliva
 ```
 
----
-
-## 📦 Instalar dependencias
+Instalar dependencias
 
 ```bash
 npm install
 ```
 
----
-
-## ▶ Ejecutar el proyecto
+Ejecutar
 
 ```bash
 ng serve -o
 ```
 
-La aplicación estará disponible en:
+Abrir
 
-```text
+```
 http://localhost:4200
 ```
 
 ---
 
-# 📱 Estado del Proyecto
+# 📊 Estado del Proyecto
 
-| Módulo                     | Estado |
-| -------------------------- | :----: |
-| 🏠 Página Principal        |   🚧   |
-| 🏢 Apartamentos            |   🚧   |
-| 📷 Galería                 |   🚧   |
-| 📍 Google Maps             |    ✅   |
-| 📞 Contacto                |   🚧   |
-| 👤 Panel Administrativo    |   🚧   |
-| 🔐 Firebase Authentication |   🚧   |
-| 📱 Responsive Design       |   🚧   |
+| Módulo                      | Estado |
+| --------------------------- | :----: |
+| 🏠 Landing Page             |    ✅   |
+| 🏢 Apartamentos             |   🚧   |
+| 📷 Galería                  |   🚧   |
+| 📍 Google Maps              |    ✅   |
+| 📞 Contacto                 |   🚧   |
+| 🔐 Login por Correo         |    ✅   |
+| 🔑 Login con Google         |    ✅   |
+| 🔥 Firebase Authentication  |    ✅   |
+| ☁️ Cloud Firestore          |    ✅   |
+| 👤 Dashboard Administrativo |    ✅   |
+| 📱 Responsive Design        |   🚧   |
+
+---
+
+# 🗺️ Roadmap
+
+## ✅ Primera Etapa (Completada)
+
+* Nueva arquitectura
+* Angular moderno
+* Nuevo diseño
+* Responsive
+* Home
+* Navbar
+* Footer
+* Firebase Authentication
+* Cloud Firestore
+* Login por correo
+* Login con Google
+* Dashboard Administrativo
 
 ---
 
-# 🏗️ Roadmap 2026
+## 🚧 Segunda Etapa
 
-## Primera etapa
-
-* ✅ Nueva arquitectura
-* ✅ Angular moderno
-* ✅ Nuevo logo
-* ✅ Nuevo diseño
-* ✅ Responsive Design
-* ✅ Navbar
-* ✅ Footer
-* ✅ Home
-
-## Segunda etapa
-
-* 🔄 Catálogo de apartamentos
-* 🔄 Página de detalles
-* 🔄 Galería profesional
-* 🔄 Contacto
-* 🔄 Google Maps
-* 🔄 Optimización SEO
-
-## Tercera etapa
-
-* 🔄 Firebase
-* 🔄 Panel Administrativo
-* 🔄 Gestión de reservas
-* 🔄 Gestión de apartamentos
-* 🔄 Dashboard
+* Catálogo de apartamentos
+* Detalle del apartamento
+* Galería
+* Contacto
+* Integración completa con Google Maps
+* Optimización SEO
 
 ---
+
+## 🚀 Tercera Etapa
+
+* Gestión de apartamentos
+* Gestión de reservas
+* Gestión de clientes
+* Gestión de pagos
+* Dashboard dinámico
+* Reportes
+* Estadísticas
+* Panel completo de administración
+
+---
+
+
 
 # 💡 Historia del Proyecto
 
-Este proyecto comenzó en **2019** con el objetivo de crear una página web para promocionar unos apartamentos familiares ubicados en Punta Cana.
+Edificios Oliva representa la evolución de uno de los primeros proyectos personales desarrollados por el autor.
 
-Aunque nunca llegó a implementarse oficialmente, el desarrollo permitió experimentar con Angular, Firebase y diversas tecnologías web modernas, convirtiéndose en una pieza importante dentro del crecimiento profesional de su autor.
+Lo que inició en 2019 como un sitio web básico, fue reconstruido completamente en 2026 utilizando tecnologías modernas como Angular, Firebase Authentication y Cloud Firestore, aplicando mejores prácticas de arquitectura, diseño y experiencia de usuario.
 
-La versión desarrollada en **2026** representa una reconstrucción completa del proyecto original, manteniendo su esencia pero incorporando una arquitectura moderna, una mejor experiencia de usuario y una interfaz mucho más elegante y profesional.
-
-El código original permanecerá disponible como **Legacy Version**, mientras que esta edición será la evolución definitiva del proyecto.
+El proyecto original permanecerá disponible como **Legacy Version**, mientras que esta edición representa la evolución definitiva del sistema.
 
 ---
 
@@ -232,12 +252,17 @@ El código original permanecerá disponible como **Legacy Version**, mientras qu
 
 **Francis Jairo Matías Rosario**
 
+Tecnólogo en Desarrollo de Software
+
+República Dominicana 🇩🇴
+
 ---
 
 <p align="center">
 
-Desarrollado con ❤️ utilizando Angular
+Desarrollado con ❤️ utilizando Angular & Firebase
 
-Edificios Oliva • 2019 — Presente
+**Edificios Oliva • 2019 — Presente**
 
 </p>
+
