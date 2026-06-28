@@ -259,7 +259,7 @@ El proyecto original permanecerá disponible como **Legacy Version**, mientras q
 
 Tecnólogo en Desarrollo de Software
 
-República Dominicana 🇩🇴
+Estudiante de Ingenieria de Software
 
 ---
 
