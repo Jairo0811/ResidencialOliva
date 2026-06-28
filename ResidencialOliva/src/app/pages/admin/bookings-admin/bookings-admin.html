@@ -1,0 +1,87 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h1>Reservas</h1>
+
+      <p>Gestiona todas las reservas realizadas.</p>
+    </div>
+
+    <button class="new-btn">
+      <i class="bi bi-calendar-plus"></i>
+
+      Nueva Reserva
+    </button>
+  </div>
+
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+
+          <th>Cliente</th>
+
+          <th>Apartamento</th>
+
+          <th>Entrada</th>
+
+          <th>Salida</th>
+
+          <th>Total</th>
+
+          <th>Estado</th>
+
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (booking of bookings; track booking.id) {
+          <tr>
+            <td>#{{ booking.id }}</td>
+
+            <td>{{ booking.customer }}</td>
+
+            <td>{{ booking.apartment }}</td>
+
+            <td>{{ booking.checkIn }}</td>
+
+            <td>{{ booking.checkOut }}</td>
+
+            <td>US$ {{ booking.total }}</td>
+
+            <td>
+              @switch (booking.status) {
+                @case ('Confirmada') {
+                  <span class="confirmed">{{ booking.status }}</span>
+                }
+
+                @case ('Pendiente') {
+                  <span class="pending">{{ booking.status }}</span>
+                }
+
+                @case ('Cancelada') {
+                  <span class="cancelled">{{ booking.status }}</span>
+                }
+              }
+            </td>
+
+            <td>
+              <button class="view">
+                <i class="bi bi-eye"></i>
+              </button>
+
+              <button class="edit">
+                <i class="bi bi-pencil"></i>
+              </button>
+
+              <button class="delete">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,119 @@
+<div class="admin-page">
+
+  <div class="page-header">
+
+    <div>
+
+      <h1>Clientes</h1>
+
+      <p>Gestiona los huéspedes registrados en Edificios Oliva.</p>
+
+    </div>
+
+    <button class="new-btn">
+
+      <i class="bi bi-person-plus-fill"></i>
+
+      Nuevo Cliente
+
+    </button>
+
+  </div>
+
+  <div class="table-card">
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>ID</th>
+
+          <th>Cliente</th>
+
+          <th>Correo</th>
+
+          <th>Teléfono</th>
+
+          <th>Reservas</th>
+
+          <th>Estado</th>
+
+          <th>Acciones</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        @for(customer of customers; track customer.id){
+
+        <tr>
+
+          <td>#{{customer.id}}</td>
+
+          <td>{{customer.name}}</td>
+
+          <td>{{customer.email}}</td>
+
+          <td>{{customer.phone}}</td>
+
+          <td>{{customer.bookings}}</td>
+
+          <td>
+
+            @if(customer.status=="Activo"){
+
+              <span class="active">
+
+                {{customer.status}}
+
+              </span>
+
+            } @else {
+
+              <span class="inactive">
+
+                {{customer.status}}
+
+              </span>
+
+            }
+
+          </td>
+
+          <td>
+
+            <button class="view">
+
+              <i class="bi bi-eye"></i>
+
+            </button>
+
+            <button class="edit">
+
+              <i class="bi bi-pencil"></i>
+
+            </button>
+
+            <button class="delete">
+
+              <i class="bi bi-trash"></i>
+
+            </button>
+
+          </td>
+
+        </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

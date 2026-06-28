@@ -1,0 +1,104 @@
+.admin-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+
+.sidebar {
+  background: #0f4c81;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo img {
+  width: 170px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 14px 18px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.logout-btn {
+  margin-top: 30px;
+  border: none;
+  background: #ffffff;
+  color: #0f4c81;
+  padding: 14px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 80px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 35px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.topbar span {
+  color: #666;
+  font-weight: 600;
+}
+
+.content {
+  padding: 35px;
+}
+
+@media (max-width: 992px) {
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .topbar {
+    padding: 20px;
+  }
+
+  .content {
+    padding: 20px;
+  }
+}

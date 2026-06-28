@@ -1,0 +1,123 @@
+<div class="admin-page">
+
+  <div class="page-header">
+
+    <div>
+
+      <h1>Pagos</h1>
+
+      <p>Historial de pagos y transacciones.</p>
+
+    </div>
+
+    <button class="new-btn">
+
+      <i class="bi bi-credit-card"></i>
+
+      Registrar Pago
+
+    </button>
+
+  </div>
+
+  <div class="table-card">
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>ID</th>
+          <th>Cliente</th>
+          <th>Apartamento</th>
+          <th>Monto</th>
+          <th>Método</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        @for(payment of payments; track payment.id){
+
+        <tr>
+
+          <td>{{payment.id}}</td>
+
+          <td>{{payment.customer}}</td>
+
+          <td>{{payment.apartment}}</td>
+
+          <td>US$ {{payment.amount}}</td>
+
+          <td>{{payment.method}}</td>
+
+          <td>
+
+            @switch(payment.status){
+
+              @case("Pagado"){
+
+                <span class="paid">
+
+                  {{payment.status}}
+
+                </span>
+
+              }
+
+              @case("Pendiente"){
+
+                <span class="pending">
+
+                  {{payment.status}}
+
+                </span>
+
+              }
+
+              @case("Reembolsado"){
+
+                <span class="refund">
+
+                  {{payment.status}}
+
+                </span>
+
+              }
+
+            }
+
+          </td>
+
+          <td>
+
+            <button class="view">
+
+              <i class="bi bi-receipt"></i>
+
+            </button>
+
+            <button class="refund-btn">
+
+              <i class="bi bi-arrow-counterclockwise"></i>
+
+            </button>
+
+          </td>
+
+        </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

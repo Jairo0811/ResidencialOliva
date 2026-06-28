@@ -1,1 +1,46 @@
-<p>gallery works!</p>
+<section class="gallery-hero">
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <span>Edificios Oliva</span>
+    <h1>Galería</h1>
+    <p>Descubre cada espacio de nuestros apartamentos.</p>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <div class="container">
+    <div class="gallery-header">
+      <h2>Explora nuestros espacios</h2>
+      <p>Conoce los apartamentos, áreas comunes y todo lo que ofrece Edificios Oliva.</p>
+    </div>
+
+    <div class="filters">
+      @for (category of categories; track category) {
+        <button type="button">
+          {{ category }}
+        </button>
+      }
+    </div>
+
+    <div class="gallery-grid">
+      @for (image of images; track image; let i = $index) {
+        <button class="photo" type="button" (click)="openLightbox(i)">
+          <img [src]="image" alt="Galería Edificios Oliva" />
+        </button>
+      }
+    </div>
+  </div>
+</section>
+
+@if (selectedImage) {
+  <div class="lightbox">
+    <button class="lightbox-close" type="button" (click)="closeLightbox()">×</button>
+
+    <button class="lightbox-nav left" type="button" (click)="previousImage()">‹</button>
+
+    <img [src]="selectedImage" alt="Imagen ampliada" />
+
+    <button class="lightbox-nav right" type="button" (click)="nextImage()">›</button>
+  </div>
+}

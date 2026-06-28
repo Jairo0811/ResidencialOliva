@@ -1,1 +1,71 @@
-<p>dashboard works!</p>
+<section class="dashboard-page">
+  <div class="page-header">
+    <div>
+      <h1>Dashboard</h1>
+      <p>Resumen general de Edificios Oliva.</p>
+    </div>
+
+    <div class="admin-user">
+      <i class="bi bi-person-circle"></i>
+      <span>Administrador</span>
+    </div>
+  </div>
+
+  <section class="stats">
+    @for (stat of stats; track stat.title) {
+      <article class="card">
+        <div>
+          <small>{{ stat.title }}</small>
+          <h2>{{ stat.value }}</h2>
+        </div>
+
+        <i class="bi {{ stat.icon }}"></i>
+      </article>
+    }
+  </section>
+
+  <section class="content-grid">
+    <div class="panel">
+      <h2>Últimas Reservas</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Apartamento</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Juan Pérez</td>
+            <td>Ejecutivo</td>
+            <td><span class="ok">Confirmada</span></td>
+          </tr>
+
+          <tr>
+            <td>María López</td>
+            <td>Premium</td>
+            <td><span class="pending">Pendiente</span></td>
+          </tr>
+
+          <tr>
+            <td>Carlos Díaz</td>
+            <td>Familiar</td>
+            <td><span class="ok">Confirmada</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel">
+      <h2>Resumen</h2>
+
+      <p>✔ Apartamentos disponibles: 8</p>
+      <p>✔ Ocupación: 82%</p>
+      <p>✔ Próximo Check-In: Hoy</p>
+      <p>✔ Reservas este mes: 48</p>
+    </div>
+  </section>
+</section>

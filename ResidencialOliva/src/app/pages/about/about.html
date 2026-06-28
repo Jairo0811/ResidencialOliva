@@ -1,1 +1,100 @@
-<p>about works!</p>
+<section class="about-hero">
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <span>Edificios Oliva</span>
+
+    <h1>Sobre Nosotros</h1>
+
+    <p>Una historia familiar que evoluciona hacia una experiencia moderna de hospedaje.</p>
+  </div>
+</section>
+
+<section class="about-story">
+  <div class="container story-grid">
+    <div>
+      <span class="section-tag">Nuestra Historia</span>
+
+      <h2>Del proyecto familiar al futuro</h2>
+
+      <p>
+        Edificios Oliva nació como un proyecto familiar ubicado en Bávaro, Punta Cana, pensado para
+        ofrecer apartamentos cómodos y bien ubicados para visitantes nacionales e internacionales.
+      </p>
+
+      <p>
+        El primer sitio web fue desarrollado en <strong>2019</strong>, como uno de los primeros
+        proyectos personales en Angular. En <strong>2026</strong>, el sistema fue completamente
+        rediseñado con una nueva imagen, arquitectura moderna y una mejor experiencia para los
+        usuarios.
+      </p>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1494526585095-c41746248156" alt="Edificios Oliva" />
+  </div>
+</section>
+
+<section class="values">
+  <div class="container">
+    <div class="section-header">
+      <span>Nuestros Valores</span>
+
+      <h2>¿Qué nos distingue?</h2>
+    </div>
+
+    <div class="values-grid">
+      @for (value of values; track value.title) {
+        <article class="value-card">
+          <i class="bi {{ value.icon }}"></i>
+
+          <h3>{{ value.title }}</h3>
+
+          <p>{{ value.text }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="timeline">
+  <div class="container">
+    <div class="section-header">
+      <span>Evolución</span>
+
+      <h2>2019 → 2026</h2>
+    </div>
+
+    <div class="timeline-card">
+      <div class="year">
+        <h3>2019</h3>
+
+        <p>Primer sitio web desarrollado con Angular y Firebase.</p>
+      </div>
+
+      <div class="line"></div>
+
+      <div class="year">
+        <h3>2026</h3>
+
+        <p>Reconstrucción completa con una imagen moderna y nuevas funcionalidades.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-cta">
+  <div class="container">
+    <h2>Descubre nuestros apartamentos</h2>
+
+    <p>
+      Explora las opciones disponibles y encuentra el alojamiento ideal para tu próxima visita a
+      Punta Cana.
+    </p>
+
+    <div class="buttons">
+      <a routerLink="/departamentos" class="btn-primary"> Ver Departamentos </a>
+
+      <a routerLink="/contacto" class="btn-secondary"> Contáctanos </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,56 @@
+<div class="admin-layout">
+  <aside class="sidebar">
+    <div class="logo">
+      <img src="/images/logo-edificios-oliva-white.png" alt="Edificios Oliva" />
+    </div>
+    <nav>
+      <a routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <i class="bi bi-speedometer2"></i>
+        Dashboard
+      </a>
+
+      <a routerLink="/admin/apartamentos" routerLinkActive="active">
+        <i class="bi bi-building"></i>
+        Apartamentos
+      </a>
+
+      <a routerLink="/admin/reservas" routerLinkActive="active">
+        <i class="bi bi-calendar-check"></i>
+        Reservas
+      </a>
+
+      <a routerLink="/admin/clientes" routerLinkActive="active">
+        <i class="bi bi-people-fill"></i>
+        Clientes
+      </a>
+
+      <a routerLink="/admin/pagos" routerLinkActive="active">
+        <i class="bi bi-credit-card"></i>
+        Pagos
+      </a>
+
+      <a routerLink="/admin/galeria" routerLinkActive="active">
+        <i class="bi bi-images"></i>
+        Galería
+      </a>
+    </nav>
+
+    <button class="logout-btn" (click)="logout()">
+      <i class="bi bi-box-arrow-right"></i>
+
+      Cerrar sesión
+    </button>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <h1>Edificios Oliva</h1>
+
+      <span>Panel Administrativo</span>
+    </header>
+
+    <section class="content">
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+</div>

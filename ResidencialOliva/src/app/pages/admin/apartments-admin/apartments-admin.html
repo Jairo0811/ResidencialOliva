@@ -1,0 +1,121 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h1>Apartamentos</h1>
+
+      <p>Administra todos los apartamentos disponibles.</p>
+    </div>
+
+    <button class="new-btn" (click)="openCreateForm()">
+      <i class="bi bi-plus-circle"></i>
+
+      Nuevo Apartamento
+    </button>
+  </div>
+
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Capacidad</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (apartment of apartments; track apartment.id) {
+          <tr>
+            <td>#{{ apartment.id }}</td>
+
+            <td>{{ apartment.name }}</td>
+
+            <td>US$ {{ apartment.price }}</td>
+
+            <td>{{ apartment.guests }} huéspedes</td>
+
+            <td>
+              @if (apartment.status === 'Disponible') {
+                <span class="available">
+                  {{ apartment.status }}
+                </span>
+              } @else {
+                <span class="occupied">
+                  {{ apartment.status }}
+                </span>
+              }
+            </td>
+
+            <td>
+              <button class="edit" (click)="openEditForm()">
+                <i class="bi bi-pencil-square"></i>
+              </button>
+
+              <button class="delete">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  @if (showForm) {
+  <div class="modal-backdrop">
+    <div class="apartment-modal">
+      <div class="modal-header">
+        <h2>
+          @if (editingMode) {
+            Editar apartamento
+          } @else {
+            Nuevo apartamento
+          }
+        </h2>
+
+        <button type="button" class="close-btn" (click)="closeForm()">×</button>
+      </div>
+
+      <form class="apartment-form">
+        <div class="form-grid">
+          <input type="text" placeholder="Nombre del apartamento" />
+          <input type="number" placeholder="Precio por noche" />
+          <input type="number" placeholder="Cantidad de huéspedes" />
+          <input type="number" placeholder="Habitaciones" />
+          <input type="number" placeholder="Baños" />
+
+          <select>
+            <option>Disponible</option>
+            <option>Ocupado</option>
+            <option>Mantenimiento</option>
+          </select>
+        </div>
+
+        <textarea rows="5" placeholder="Descripción del apartamento"></textarea>
+
+        <div class="amenities-box">
+          <label><input type="checkbox" /> WiFi</label>
+          <label><input type="checkbox" /> Parqueo</label>
+          <label><input type="checkbox" /> Aire acondicionado</label>
+          <label><input type="checkbox" /> Cocina equipada</label>
+          <label><input type="checkbox" /> Piscina</label>
+          <label><input type="checkbox" /> Seguridad</label>
+        </div>
+
+        <div class="upload-box">
+          <i class="bi bi-cloud-arrow-up"></i>
+          <p>Subir imágenes del apartamento</p>
+          <small>Más adelante lo conectaremos con Firebase Storage</small>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="cancel-btn" (click)="closeForm()">Cancelar</button>
+          <button type="button" class="save-btn">Guardar apartamento</button>
+        </div>
+      </form>
+    </div>
+  </div>
+}
+</div>

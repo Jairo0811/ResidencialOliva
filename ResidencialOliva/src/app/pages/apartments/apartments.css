@@ -1,0 +1,330 @@
+.apartments-hero {
+  position: relative;
+  min-height: 550px;
+  display: grid;
+  place-items: center;
+  color: white;
+  text-align: center;
+  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero-content span {
+  color: #f5e6c8;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero-content h1 {
+  font-size: 72px;
+  font-weight: 700;
+  margin: 15px 0;
+}
+
+.hero-content p {
+  font-size: 20px;
+  color: #eef6fb;
+}
+
+.filters-section {
+  margin-top: -70px;
+  position: relative;
+  z-index: 10;
+}
+
+.filters-card {
+  background: white;
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(15, 76, 129, 0.16);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.filters-card label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1f2933;
+}
+
+.filters-card input,
+.filters-card select {
+  width: 100%;
+  border: 1px solid #d8dee9;
+  border-radius: 14px;
+  padding: 14px;
+  outline: none;
+}
+
+.filters-card input:focus,
+.filters-card select:focus {
+  border-color: #0f4c81;
+  box-shadow: 0 0 0 4px rgba(15, 76, 129, 0.1);
+}
+
+.filters-card button {
+  border: none;
+  border-radius: 16px;
+  background: #0f4c81;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.filters-card button:hover {
+  background: #0077b6;
+  transform: translateY(-2px);
+}
+
+.apartments-list {
+  padding: 110px 0;
+  background: #f7f9fb;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 55px;
+}
+
+.section-header span {
+  color: #0f4c81;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.section-header h2 {
+  font-size: 44px;
+  color: #1f2933;
+  margin: 15px 0;
+}
+
+.section-header p {
+  color: #6b7280;
+  font-size: 18px;
+}
+
+.apartments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.apartment-card {
+  background: white;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(15, 76, 129, 0.1);
+  transition: 0.3s ease;
+}
+
+.apartment-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 70px rgba(15, 76, 129, 0.18);
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.apartment-card:hover .image-wrapper img {
+  transform: scale(1.08);
+}
+
+.favorite {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  color: #0f4c81;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  transition: 0.3s ease;
+}
+
+.favorite:hover {
+  background: #0f4c81;
+  color: white;
+}
+
+.card-body {
+  padding: 28px;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.card-top h3 {
+  margin: 0 0 8px;
+  color: #1f2933;
+  font-size: 23px;
+}
+
+.location {
+  color: #6b7280;
+  margin: 0;
+}
+
+.location i {
+  color: #0f4c81;
+}
+
+.price {
+  color: #0f4c81;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.description {
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 18px 0;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.features span {
+  background: #eef6fb;
+  color: #0f4c81;
+  border-radius: 30px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.card-body a {
+  display: inline-block;
+  background: #0f4c81;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+.card-body a:hover {
+  background: #0077b6;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1200px) {
+  .apartments-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-content h1 {
+    font-size: 58px;
+  }
+}
+
+@media (max-width: 992px) {
+  .apartments-hero {
+    min-height: 460px;
+    background-attachment: scroll;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+
+  .filters-card,
+  .apartments-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-card button {
+    padding: 14px;
+  }
+
+  .apartments-list {
+    padding: 90px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .apartments-hero {
+    min-height: 420px;
+    padding: 70px 0;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+  }
+
+  .hero-content span {
+    font-size: 13px;
+  }
+
+  .filters-section {
+    margin-top: -45px;
+  }
+
+  .filters-card {
+    padding: 22px;
+  }
+
+  .section-header h2 {
+    font-size: 32px;
+  }
+
+  .image-wrapper img {
+    height: 230px;
+  }
+
+  .card-top {
+    flex-direction: column;
+  }
+
+  .card-body a {
+    width: 100%;
+    text-align: center;
+  }
+}

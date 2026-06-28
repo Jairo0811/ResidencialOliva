@@ -1,0 +1,182 @@
+.about-hero{
+  position:relative;
+  height:430px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  text-align:center;
+  background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover fixed;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.hero-content span{
+  color:#f5e6c8;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-weight:700;
+}
+
+.hero-content h1{
+  font-size:64px;
+  margin:15px 0;
+}
+
+.about-story{
+  padding:100px 0;
+  text-align:justify;
+}
+
+.story-grid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.story-grid img{
+  width:100%;
+  border-radius:24px;
+  box-shadow:0 20px 60px rgba(0,0,0,.15);
+}
+
+.section-tag{
+  color:#0f4c81;
+  font-weight:700;
+  text-transform:uppercase;
+  text-align:justify;
+}
+
+.story-grid h2{
+  font-size:44px;
+  margin:20px 0;
+}
+
+.story-grid p{
+  color:#555;
+  line-height:1.9;
+}
+
+.values{
+  padding:90px 0;
+  background:#f7f9fb;
+}
+
+.section-header{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.values-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+
+.value-card{
+  background:#fff;
+  border-radius:24px;
+  padding:40px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(15,76,129,.08);
+  transition:.3s;
+}
+
+.value-card:hover{
+  transform:translateY(-8px);
+}
+
+.value-card i{
+  font-size:46px;
+  color:#0f4c81;
+}
+
+.timeline{
+  padding:100px 0;
+}
+
+.timeline-card{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:40px;
+}
+
+.line{
+  width:120px;
+  height:4px;
+  background:#0f4c81;
+}
+
+.year{
+  max-width:320px;
+  text-align:center;
+}
+
+.about-cta{
+  background:#0f4c81;
+  color:#fff;
+  text-align:center;
+  padding:90px 20px;
+}
+
+.buttons{
+  margin-top:35px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+
+.btn-primary,
+.btn-secondary{
+  padding:15px 30px;
+  border-radius:35px;
+  font-weight:700;
+}
+
+.btn-primary{
+  background:#fff;
+  color:#0f4c81;
+}
+
+.btn-secondary{
+  border:2px solid #fff;
+  color:#fff;
+}
+
+@media(max-width:992px){
+
+  .about-hero{
+    background-attachment:scroll;
+  }
+
+  .story-grid,
+  .values-grid,
+  .timeline-card{
+    grid-template-columns:1fr;
+    display:grid;
+  }
+
+  .line{
+    display:none;
+  }
+
+  .buttons{
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .hero-content h1{
+    font-size:42px;
+  }
+
+}

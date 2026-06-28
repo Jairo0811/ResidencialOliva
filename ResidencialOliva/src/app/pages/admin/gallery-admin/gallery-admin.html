@@ -1,0 +1,55 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h1>Galería</h1>
+
+      <p>Administra las imágenes del sitio web.</p>
+    </div>
+
+    <button class="upload-btn">
+      <i class="bi bi-cloud-upload"></i>
+
+      Subir imágenes
+    </button>
+  </div>
+
+  <div class="upload-zone">
+    <i class="bi bi-images"></i>
+
+    <h2>Arrastra imágenes aquí</h2>
+
+    <p>o selecciona archivos desde tu computadora.</p>
+
+    <button>Seleccionar archivos</button>
+  </div>
+
+  <div class="filters">
+    @for (category of categories; track category) {
+      <button>
+        {{ category }}
+      </button>
+    }
+  </div>
+
+  <div class="gallery-grid">
+    @for (image of images; track image.id) {
+      <article class="photo-card">
+        <img [src]="image.url" alt="Imagen" />
+
+        <div class="photo-info">
+          <span>{{ image.category }}</span>
+
+          <div>
+            <button class="view">
+              <i class="bi bi-eye"></i>
+            </button>
+
+            <button class="delete">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</div>

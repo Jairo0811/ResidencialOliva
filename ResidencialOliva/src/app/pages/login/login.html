@@ -1,1 +1,86 @@
-<p>login works!</p>
+<section class="login-page">
+
+  <div class="login-card">
+
+    <div class="brand">
+
+      <img src="/images/logo-residencial-oliva.png" alt="Edificios Oliva">
+
+      <span>PANEL ADMINISTRATIVO</span>
+
+      <h1>Iniciar sesión</h1>
+
+      <p>
+        Accede para administrar apartamentos, reservas,
+        clientes y pagos.
+      </p>
+
+    </div>
+
+    <form (ngSubmit)="login()">
+
+      <label>Correo electrónico</label>
+
+      <input type="email" name="email" [(ngModel)]="email" placeholder="admin@edificiosoliva.com">
+
+      <label>Contraseña</label>
+
+      <div class="password-field">
+
+        <input [type]="showPassword ? 'text' : 'password'" name="password" [(ngModel)]="password"
+          placeholder="Tu contraseña">
+
+        <button type="button" (click)="togglePassword()">
+
+          <i class="bi" [class.bi-eye]="!showPassword" [class.bi-eye-slash]="showPassword">
+          </i>
+
+        </button>
+
+      </div>
+
+      @if(errorMessage){
+
+      <div class="error-message">
+
+        {{errorMessage}}
+
+      </div>
+
+      }
+
+      <button class="login-btn" type="submit" [disabled]="loading">
+
+        @if(loading){
+
+        <span class="spinner-border spinner-border-sm me-2">
+        </span>
+
+        Iniciando sesión...
+
+        }@else{
+
+        Iniciar sesión
+
+        }
+
+      </button>
+      <div class="divider">
+        <span>o continuar con</span>
+      </div>
+
+      <button class="google-btn" type="button" (click)="loginGoogle()" [disabled]="loading">
+        <i class="bi bi-google"></i>
+        Iniciar sesión con Google
+      </button>
+    </form>
+
+    <a routerLink="/" class="back-home">
+
+      ← Volver al sitio web
+
+    </a>
+
+  </div>
+
+</section>

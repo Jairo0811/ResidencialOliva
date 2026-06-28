@@ -1,1 +1,91 @@
-<p>booking works!</p>
+<section class="booking-hero">
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+    <span>Edificios Oliva</span>
+
+    <h1>Reserva tu estadía</h1>
+
+    <p>Completa la información para comenzar tu reserva.</p>
+  </div>
+</section>
+
+<section class="booking-section">
+  <div class="container">
+    <div class="booking-grid">
+      <div class="booking-form">
+        <h2>Información del huésped</h2>
+
+        <input type="text" placeholder="Nombre completo" />
+
+        <input type="email" placeholder="Correo electrónico" />
+
+        <input type="tel" placeholder="Teléfono" />
+
+        <hr />
+
+        <h2>Información de la reserva</h2>
+
+        <select>
+          @for (apartment of apartments; track apartment) {
+            <option>
+              {{ apartment }}
+            </option>
+          }
+        </select>
+
+        <div class="dates">
+          <input type="date" />
+
+          <input type="date" />
+        </div>
+
+        <select>
+          <option>1 huésped</option>
+
+          <option>2 huéspedes</option>
+
+          <option>3 huéspedes</option>
+
+          <option>4 huéspedes</option>
+
+          <option>5 huéspedes</option>
+
+          <option>6 huéspedes</option>
+        </select>
+
+        <textarea rows="5" placeholder="Observaciones (opcional)"> </textarea>
+      </div>
+
+      <aside class="summary-card">
+        <h2>Resumen</h2>
+
+        <div class="summary-row">
+          <span>Apartamento</span>
+          <strong>Ejecutivo</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Noches</span>
+          <strong>3</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <strong>US$240</strong>
+        </div>
+
+        <div class="summary-row total">
+          <span>Total</span>
+          <strong>US$240</strong>
+        </div>
+
+        <button class="paypal-btn">Continuar al pago</button>
+
+        <a class="whatsapp-btn" href="https://wa.me/18296196970" target="_blank">
+          Reservar por WhatsApp
+        </a>
+      </aside>
+    </div>
+  </div>
+</section>

@@ -1,1 +1,84 @@
-<p>apartments works!</p>
+<section class="apartments-hero">
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-content">
+    <span>Edificios Oliva</span>
+    <h1>Departamentos disponibles</h1>
+    <p>Opciones cómodas para hospedarte en Bávaro, Punta Cana.</p>
+  </div>
+</section>
+
+<section class="filters-section">
+  <div class="container">
+    <div class="filters-card">
+      <div>
+        <label>Entrada</label>
+        <input type="date" />
+      </div>
+
+      <div>
+        <label>Salida</label>
+        <input type="date" />
+      </div>
+
+      <div>
+        <label>Huéspedes</label>
+        <select>
+          <option>1 persona</option>
+          <option>2 personas</option>
+          <option>3 personas</option>
+          <option>4 personas</option>
+          <option>5+</option>
+        </select>
+      </div>
+
+      <button>Filtrar</button>
+    </div>
+  </div>
+</section>
+
+<section class="apartments-list">
+  <div class="container">
+    <div class="section-header">
+      <span>Alojamientos</span>
+      <h2>Elige tu próxima estadía</h2>
+      <p>Departamentos equipados para vacaciones, trabajo remoto o escapadas familiares.</p>
+    </div>
+
+    <div class="apartments-grid">
+      @for (apartment of apartments; track apartment.id) {
+        <article class="apartment-card">
+          <div class="image-wrapper">
+            <img [src]="apartment.image" [alt]="apartment.name" />
+            <button class="favorite">♡</button>
+          </div>
+
+          <div class="card-body">
+            <div class="card-top">
+              <div>
+                <h3>{{ apartment.name }}</h3>
+                <p class="location">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  {{ apartment.location }}
+                </p>
+              </div>
+
+              <span class="price">US${{ apartment.price }}/noche</span>
+            </div>
+
+            <p class="description">{{ apartment.description }}</p>
+
+            <div class="features">
+              <span><i class="bi bi-people"></i> {{ apartment.guests }} huéspedes</span>
+              <span><i class="bi bi-door-open"></i> {{ apartment.bedrooms }} hab.</span>
+              <span><i class="bi bi-droplet"></i> {{ apartment.bathrooms }} baños</span>
+              <span><i class="bi bi-wifi"></i> WiFi</span>
+            </div>
+
+            <a [routerLink]="['/departamentos', apartment.id]">Ver detalles</a>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>
