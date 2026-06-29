@@ -29,8 +29,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 16.20.2
-          cache: npm
-          cache-dependency-path: ResidencialOliva/ResidencialOliva/package-lock.json
+
+      - name: Check project files
+        run: |
+          pwd
+          ls
+          test -f angular.json
+          test -f package.json
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps --ignore-scripts
