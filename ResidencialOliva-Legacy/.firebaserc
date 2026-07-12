@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "residencial-oliva-29a0c": {
+      "hosting": {
+        "ResidencialOliva": [
+          "residencial-oliva-29a0c"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "residencial-oliva-29a0c"
+  }
+}
