@@ -1,47 +1,50 @@
-name: Angular Legacy Build
+name: Angular Modern Build
 
 on:
   push:
     branches:
       - master
-      - upgrade-angular
-      - legacy-angular-12
+      - main
 
   pull_request:
     branches:
       - master
-      - upgrade-angular
-      - legacy-angular-12
+      - main
+
+  workflow_dispatch:
 
 jobs:
   build:
+    name: Build Angular application
     runs-on: ubuntu-latest
 
     defaults:
       run:
-        working-directory: ResidencialOliva/ResidencialOliva
+        working-directory: ./ResidencialOliva
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js 16
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 16.20.2
+          node-version: 22
 
-      - name: Check project files
+      - name: Verify Angular project
         run: |
+          echo "Directorio actual:"
           pwd
-          ls
+
+          echo "Contenido:"
+          ls -la
+
           test -f angular.json
           test -f package.json
+          test -f package-lock.json
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps --ignore-scripts
+        run: npm ci --legacy-peer-deps
 
-      - name: Run NGCC
-        run: npx ngcc
-
-      - name: Build Angular legacy app
+      - name: Build Angular application
         run: npm run build
