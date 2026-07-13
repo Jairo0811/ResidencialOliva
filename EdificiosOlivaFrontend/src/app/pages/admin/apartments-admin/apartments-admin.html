@@ -1,0 +1,464 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h1>Apartamentos</h1>
+      <p>Administra todos los apartamentos disponibles.</p>
+    </div>
+
+    <button
+      class="new-btn"
+      type="button"
+      (click)="openCreateForm()"
+      aria-label="Crear nuevo apartamento"
+    >
+      <i class="bi bi-plus-circle" aria-hidden="true"></i>
+      Nuevo Apartamento
+    </button>
+  </div>
+
+  @if (successMessage) {
+    <div class="feedback-message success" role="status" aria-live="polite">
+      {{ successMessage }}
+    </div>
+  }
+
+  @if (warningMessage) {
+    <div class="feedback-message warning" role="status" aria-live="polite">
+      {{ warningMessage }}
+    </div>
+  }
+
+  @if (errorMessage && !showForm) {
+    <div class="feedback-message error" role="alert">
+      {{ errorMessage }}
+    </div>
+  }
+
+  <div
+    class="table-card"
+    role="region"
+    aria-label="Tabla de apartamentos"
+    tabindex="0"
+  >
+    @if (loadingApartments) {
+      <p class="empty-state" role="status" aria-live="polite">
+        Cargando apartamentos...
+      </p>
+    } @else if (apartments.length === 0) {
+      <p class="empty-state">Todavía no hay apartamentos registrados.</p>
+    } @else {
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Imagen</th>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Capacidad</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (apartment of apartments; track apartment.id) {
+            <tr>
+              <td>
+                <img
+                  class="table-thumbnail"
+                [src]="apartment.images[0] || '/images/apartment-placeholder.webp'"
+                  [alt]="'Imagen de ' + apartment.name"
+                />
+              </td>
+              <td>#{{ apartment.id }}</td>
+              <td>{{ apartment.name }}</td>
+              <td>US$ {{ apartment.price }}</td>
+              <td>{{ apartment.guests }} huéspedes</td>
+              <td>
+                <span
+                  class="status-badge"
+                  [class.available]="apartment.status === 'Disponible'"
+                  [class.occupied]="apartment.status === 'Ocupado'"
+                  [class.maintenance]="apartment.status === 'Mantenimiento'"
+                >
+                  {{ apartment.status }}
+                </span>
+              </td>
+              <td class="actions-cell">
+                <button
+                  class="edit"
+                  type="button"
+                  (click)="openEditForm(apartment)"
+                  [attr.aria-label]="'Editar apartamento ' + apartment.name"
+                >
+                  <i class="bi bi-pencil-square" aria-hidden="true"></i>
+                </button>
+
+                <button
+                  class="delete"
+                  type="button"
+                  (click)="deleteApartment(apartment.id!)"
+                  [attr.aria-label]="'Eliminar apartamento ' + apartment.name"
+                >
+                  <i class="bi bi-trash" aria-hidden="true"></i>
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+  </div>
+
+  @if (showForm) {
+    <div class="modal-backdrop">
+      <div
+        class="apartment-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="apartment-modal-title"
+      >
+        <div class="modal-header">
+          <div>
+            <span class="modal-kicker">
+              {{ editingMode ? 'Actualizar registro' : 'Nuevo registro' }}
+            </span>
+            <h2 id="apartment-modal-title">
+              {{ editingMode ? 'Editar apartamento' : 'Nuevo apartamento' }}
+            </h2>
+          </div>
+
+          <button
+            type="button"
+            class="close-btn"
+            (click)="closeForm()"
+            [disabled]="saving"
+            aria-label="Cerrar formulario de apartamento"
+          >
+            ×
+          </button>
+        </div>
+
+        @if (errorMessage) {
+          <div class="feedback-message error" role="alert">
+            {{ errorMessage }}
+          </div>
+        }
+
+        <form class="apartment-form" (ngSubmit)="saveApartment()">
+          <div class="form-grid">
+            <div>
+              <label for="apartment-name">Nombre del apartamento</label>
+              <input id="apartment-name" type="text"
+                [(ngModel)]="apartmentForm.name" name="name"
+                required aria-required="true" [disabled]="saving" />
+            </div>
+
+            <div>
+              <label for="apartment-price">Precio por noche</label>
+              <input id="apartment-price" type="number"
+                [(ngModel)]="apartmentForm.price" name="price"
+                min="1" required aria-required="true" [disabled]="saving" />
+            </div>
+
+            <div>
+              <label for="apartment-guests">Cantidad de huéspedes</label>
+              <input id="apartment-guests" type="number"
+                [(ngModel)]="apartmentForm.guests" name="guests"
+                min="1" required aria-required="true" [disabled]="saving" />
+            </div>
+
+            <div>
+              <label for="apartment-bedrooms">Habitaciones</label>
+              <input id="apartment-bedrooms" type="number"
+                [(ngModel)]="apartmentForm.bedrooms" name="bedrooms"
+                min="1" required aria-required="true" [disabled]="saving" />
+            </div>
+
+            <div>
+              <label for="apartment-bathrooms">Baños</label>
+              <input id="apartment-bathrooms" type="number"
+                [(ngModel)]="apartmentForm.bathrooms" name="bathrooms"
+                min="1" required aria-required="true" [disabled]="saving" />
+            </div>
+
+            <div>
+              <label for="apartment-location">Ubicación</label>
+              <input id="apartment-location" type="text"
+                [(ngModel)]="apartmentForm.location" name="location"
+                required aria-required="true" [disabled]="saving" />
+            </div>
+
+            <div>
+              <label for="apartment-status">Estado</label>
+              <select id="apartment-status"
+                [(ngModel)]="apartmentForm.status" name="status"
+                required aria-required="true" [disabled]="saving">
+                <option value="Disponible">Disponible</option>
+                <option value="Ocupado">Ocupado</option>
+                <option value="Mantenimiento">Mantenimiento</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="apartment-description">Descripción del apartamento</label>
+            <textarea id="apartment-description" rows="5"
+              [(ngModel)]="apartmentForm.description" name="description"
+              required aria-required="true" [disabled]="saving"></textarea>
+          </div>
+
+          <fieldset class="amenities-box" [disabled]="saving">
+            <legend>Amenidades</legend>
+            @for (amenity of ['WiFi', 'Parqueo', 'Aire acondicionado', 'Cocina equipada', 'Piscina', 'Seguridad']; track amenity) {
+              <label>
+                <input
+                  type="checkbox"
+                  [checked]="hasAmenity(amenity)"
+                  (change)="toggleAmenity(amenity, $event)"
+                />
+                {{ amenity }}
+              </label>
+            }
+          </fieldset>
+
+          <section class="images-section" aria-labelledby="apartment-images-title">
+            <div class="images-heading">
+              <div>
+                <h3 id="apartment-images-title">Imágenes del apartamento</h3>
+                <p>
+                  JPG, PNG o WEBP · Máximo 5 MB por imagen ·
+                  {{ totalImageCount }}/10
+                </p>
+              </div>
+
+              @if (removedExistingImages.length > 0) {
+                <button
+                  type="button"
+                  class="restore-btn"
+                  (click)="restoreLastRemovedImage()"
+                  [disabled]="saving || totalImageCount >= 10"
+                >
+                  <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i>
+                  Restaurar última
+                </button>
+              }
+            </div>
+
+            @if (apartmentForm.images.length > 0) {
+              <div class="existing-images">
+                <h4>Imágenes guardadas</h4>
+
+                <div class="preview-grid">
+                  @for (image of apartmentForm.images; track image; let i = $index) {
+                    <article class="preview-card existing">
+                      <div class="image-frame">
+                        <img
+                          [src]="image"
+                          [alt]="'Imagen guardada ' + (i + 1) + ' del apartamento'"
+                          loading="lazy"
+                        />
+
+                        @if (i === 0) {
+                          <span class="cover-badge">Portada</span>
+                        }
+                      </div>
+
+                      <div class="image-toolbar">
+                        <button
+                          type="button"
+                          (click)="moveExistingImage(i, -1)"
+                          [disabled]="saving || i === 0"
+                          aria-label="Mover imagen guardada a la izquierda"
+                        >
+                          <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                        </button>
+
+                        <button
+                          type="button"
+                          (click)="moveExistingImage(i, 1)"
+                          [disabled]="saving || i === apartmentForm.images.length - 1"
+                          aria-label="Mover imagen guardada a la derecha"
+                        >
+                          <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                        </button>
+
+                        <button
+                          type="button"
+                          (click)="setExistingImageAsCover(i)"
+                          [disabled]="saving || i === 0"
+                          aria-label="Establecer imagen como portada"
+                        >
+                          <i class="bi bi-star" aria-hidden="true"></i>
+                        </button>
+
+                        <button
+                          type="button"
+                          class="danger"
+                          (click)="removeExistingImage(i)"
+                          [disabled]="saving"
+                          aria-label="Eliminar imagen guardada"
+                        >
+                          <i class="bi bi-trash" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </article>
+                  }
+                </div>
+              </div>
+            }
+
+            <label
+              class="upload-box"
+              [class.dragging]="isDragging"
+              [class.disabled]="!canAddMoreImages"
+              (dragover)="onDragOver($event)"
+              (dragleave)="onDragLeave($event)"
+              (drop)="onDrop($event)"
+            >
+              <input
+                class="file-input"
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+                multiple
+                (change)="onFileInputChange($event)"
+                [disabled]="!canAddMoreImages"
+              />
+
+              <i class="bi bi-cloud-arrow-up" aria-hidden="true"></i>
+              <strong>
+                {{ isDragging ? 'Suelta las imágenes aquí' : 'Selecciona o arrastra imágenes' }}
+              </strong>
+              <span>
+                Puedes agregar hasta {{ 10 - totalImageCount }} imágenes más.
+              </span>
+            </label>
+
+            @if (pendingImages.length > 0) {
+              <div class="pending-images">
+                <h4>Imágenes nuevas</h4>
+
+                @if (firstNewImageWillBeCover) {
+                  <p class="cover-help">
+                    La primera imagen nueva será la portada del apartamento.
+                  </p>
+                }
+
+                <div class="preview-grid">
+                  @for (image of pendingImages; track image.previewUrl; let i = $index) {
+                    <article class="preview-card">
+                      <div class="image-frame">
+                        <img
+                          [src]="image.previewUrl"
+                          [alt]="'Vista previa de ' + image.file.name"
+                        />
+
+                        @if (firstNewImageWillBeCover && i === 0) {
+                          <span class="cover-badge">Portada</span>
+                        }
+                      </div>
+
+                      <div class="preview-info">
+                        <strong>{{ image.file.name }}</strong>
+                        <span>{{ (image.file.size / 1024 / 1024).toFixed(2) }} MB</span>
+                      </div>
+
+                      <div class="image-toolbar">
+                        <button
+                          type="button"
+                          (click)="movePendingImage(i, -1)"
+                          [disabled]="saving || i === 0"
+                          aria-label="Mover imagen nueva a la izquierda"
+                        >
+                          <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                        </button>
+
+                        <button
+                          type="button"
+                          (click)="movePendingImage(i, 1)"
+                          [disabled]="saving || i === pendingImages.length - 1"
+                          aria-label="Mover imagen nueva a la derecha"
+                        >
+                          <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                        </button>
+
+                        <button
+                          type="button"
+                          (click)="setPendingImageAsFirst(i)"
+                          [disabled]="saving || i === 0"
+                          aria-label="Mover imagen nueva al primer lugar"
+                        >
+                          <i class="bi bi-star" aria-hidden="true"></i>
+                        </button>
+
+                        <button
+                          type="button"
+                          class="danger"
+                          (click)="removePendingImage(i)"
+                          [disabled]="saving"
+                          [attr.aria-label]="'Quitar imagen ' + image.file.name"
+                        >
+                          <i class="bi bi-trash" aria-hidden="true"></i>
+                        </button>
+                      </div>
+
+                      @if (saving) {
+                        <div
+                          class="file-progress"
+                          role="progressbar"
+                          [attr.aria-valuenow]="image.progress"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                          [attr.aria-label]="'Progreso de ' + image.file.name"
+                        >
+                          <span [style.width.%]="image.progress"></span>
+                        </div>
+                      }
+                    </article>
+                  }
+                </div>
+              </div>
+            }
+
+            @if (saving && pendingImages.length > 0) {
+              <div class="overall-progress" aria-live="polite">
+                <div>
+                  <span>Subiendo imágenes...</span>
+                  <strong>{{ uploadProgress }}%</strong>
+                </div>
+
+                <div
+                  class="progress-track"
+                  role="progressbar"
+                  [attr.aria-valuenow]="uploadProgress"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-label="Progreso total de subida"
+                >
+                  <span [style.width.%]="uploadProgress"></span>
+                </div>
+              </div>
+            }
+          </section>
+
+          <div class="modal-actions">
+            <button type="button" class="cancel-btn"
+              (click)="closeForm()" [disabled]="saving">
+              Cancelar
+            </button>
+
+            <button type="submit" class="save-btn"
+              [disabled]="saving" [attr.aria-busy]="saving">
+              @if (saving) {
+                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                Guardando...
+              } @else {
+                Guardar apartamento
+              }
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+</div>

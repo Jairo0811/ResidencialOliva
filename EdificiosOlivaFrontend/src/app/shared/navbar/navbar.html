@@ -1,0 +1,96 @@
+@if (!isAdminRoute) {
+  <nav class="navbar" aria-label="Navegación principal">
+    <div class="container-custom">
+      <a class="logo" routerLink="/" (click)="closeMenus()" aria-label="Ir al inicio">
+        <img src="/images/logo-residencial-oliva.png" alt="Logo de Edificios Oliva" />
+      </a>
+
+      <button
+        class="hamburger"
+        type="button"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen"
+        aria-controls="menu-principal"
+        [attr.aria-label]="menuOpen ? 'Cerrar menú principal' : 'Abrir menú principal'"
+      >
+        <i class="bi" [class.bi-list]="!menuOpen" [class.bi-x-lg]="menuOpen" aria-hidden="true"></i>
+      </button>
+
+      <div id="menu-principal" class="nav-content" [class.open]="menuOpen">
+        <ul class="menu">
+          <li>
+            <a
+              routerLink="/"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              (click)="closeMenus()"
+            >
+              Inicio
+            </a>
+          </li>
+          <li>
+            <a routerLink="/departamentos" routerLinkActive="active" (click)="closeMenus()">
+              Departamentos
+            </a>
+          </li>
+          <li>
+            <a routerLink="/galeria" routerLinkActive="active" (click)="closeMenus()"> Galería </a>
+          </li>
+          <li>
+            <a routerLink="/nosotros" routerLinkActive="active" (click)="closeMenus()">
+              Nosotros
+            </a>
+          </li>
+          <li>
+            <a routerLink="/contacto" routerLinkActive="active" (click)="closeMenus()">
+              Contacto
+            </a>
+          </li>
+        </ul>
+
+        <div class="actions">
+          @if (profile) {
+            <div class="user-menu">
+              <button
+                class="user-menu-trigger"
+                type="button"
+                (click)="toggleUserMenu()"
+                [attr.aria-expanded]="userMenuOpen"
+                aria-haspopup="menu"
+              >
+                <i class="bi bi-person-circle" aria-hidden="true"></i>
+
+                <span>
+                  <small>Bienvenido/a:</small>
+                  <strong>{{ displayName }}</strong>
+                </span>
+
+                <i class="bi bi-chevron-down" aria-hidden="true"></i>
+              </button>
+
+              @if (userMenuOpen) {
+                <div id="user-dropdown" class="user-dropdown">
+                  @if (profile.role === 'admin') {
+                    <a routerLink="/admin" (click)="closeMenus()">
+                      <i class="bi bi-grid" aria-hidden="true"></i>
+                      Panel administrativo
+                    </a>
+                  }
+
+                  <button type="button" (click)="logout()" [disabled]="loggingOut">
+                    <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+                    {{ loggingOut ? 'Cerrando sesión...' : 'Cerrar sesión' }}
+                  </button>
+                </div>
+              }
+            </div>
+          } @else {
+            <a routerLink="/login" class="btn-login" (click)="closeMenus()"> Iniciar sesión </a>
+          }
+
+          <a routerLink="/reservar" class="btn-book" (click)="closeMenus()"> Reservar </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+}

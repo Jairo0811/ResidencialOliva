@@ -1,0 +1,170 @@
+<div class="admin-layout">
+  <button
+    class="mobile-menu"
+    type="button"
+    (click)="toggleMenu()"
+    [attr.aria-expanded]="menuOpen"
+    aria-controls="admin-sidebar"
+    [attr.aria-label]="
+      menuOpen
+        ? 'Cerrar menú administrativo'
+        : 'Abrir menú administrativo'
+    "
+  >
+    <i
+      class="bi"
+      [class.bi-list]="!menuOpen"
+      [class.bi-x-lg]="menuOpen"
+      aria-hidden="true"
+    ></i>
+  </button>
+
+  @if (menuOpen) {
+    <button
+      class="sidebar-overlay"
+      type="button"
+      (click)="closeMenu()"
+      aria-label="Cerrar menú administrativo"
+    ></button>
+  }
+
+  <aside
+    id="admin-sidebar"
+    class="sidebar"
+    [class.open]="menuOpen"
+    aria-label="Menú administrativo"
+  >
+    <a
+      class="brand"
+      routerLink="/admin"
+      (click)="closeMenu()"
+      aria-label="Ir al dashboard administrativo"
+    >
+      <img
+        src="/images/logo-residencial-oliva.png"
+        alt="Logo de Edificios Oliva"
+      />
+
+      <span>Panel Administrativo</span>
+    </a>
+
+    <nav aria-label="Navegación del panel administrativo">
+      <a
+        routerLink="/admin"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeMenu()"
+      >
+        <i class="bi bi-grid-1x2-fill" aria-hidden="true"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a
+        routerLink="/admin/apartamentos"
+        routerLinkActive="active"
+        (click)="closeMenu()"
+      >
+        <i class="bi bi-building-fill" aria-hidden="true"></i>
+        <span>Apartamentos</span>
+      </a>
+
+      <a
+        routerLink="/admin/reservas"
+        routerLinkActive="active"
+        (click)="closeMenu()"
+      >
+        <i class="bi bi-calendar-check-fill" aria-hidden="true"></i>
+        <span>Reservas</span>
+      </a>
+
+      <a
+        routerLink="/admin/clientes"
+        routerLinkActive="active"
+        (click)="closeMenu()"
+      >
+        <i class="bi bi-people-fill" aria-hidden="true"></i>
+        <span>Clientes</span>
+      </a>
+
+      <a
+        routerLink="/admin/pagos"
+        routerLinkActive="active"
+        (click)="closeMenu()"
+      >
+        <i class="bi bi-credit-card-fill" aria-hidden="true"></i>
+        <span>Pagos</span>
+      </a>
+
+      <a
+        routerLink="/admin/galeria"
+        routerLinkActive="active"
+        (click)="closeMenu()"
+      >
+        <i class="bi bi-images" aria-hidden="true"></i>
+        <span>Galería</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-account">
+      <div class="account-summary">
+        <div class="account-avatar" aria-hidden="true">
+          <i class="bi bi-person-fill"></i>
+        </div>
+
+        <div class="account-data">
+          <small>Sesión iniciada como</small>
+          <strong>{{ displayName }}</strong>
+          <span>
+            {{ profile?.role === 'admin' ? 'Administrador' : 'Usuario' }}
+          </span>
+        </div>
+      </div>
+
+      <button
+        class="logout-btn"
+        type="button"
+        (click)="logout()"
+        [disabled]="loggingOut"
+        [attr.aria-busy]="loggingOut"
+      >
+        <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+
+        {{ loggingOut ? 'Cerrando sesión...' : 'Cerrar sesión' }}
+      </button>
+    </div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <div class="topbar-heading">
+        <span class="topbar-kicker">Edificios Oliva</span>
+        <h1>Panel Administrativo</h1>
+      </div>
+
+      <div class="topbar-actions">
+        <a routerLink="/" class="site-link">
+          <i class="bi bi-globe-americas" aria-hidden="true"></i>
+          <span>Ver sitio web</span>
+        </a>
+
+        <div class="welcome-message">
+          <div class="welcome-avatar" aria-hidden="true">
+            <i class="bi bi-person-fill"></i>
+          </div>
+
+          <span>
+            <small>Bienvenido/a</small>
+            <strong>{{ displayName }}</strong>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <section
+      class="content"
+      aria-label="Contenido del panel administrativo"
+    >
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+</div>

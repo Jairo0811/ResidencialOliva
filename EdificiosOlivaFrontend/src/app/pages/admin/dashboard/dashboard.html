@@ -1,0 +1,156 @@
+<div class="dashboard-page">
+  <header class="dashboard-heading">
+    <div>
+      <span class="page-kicker">Resumen general</span>
+      <h1>Dashboard</h1>
+
+      <p>
+        Consulta el estado actual de apartamentos, reservas,
+        clientes e ingresos.
+      </p>
+    </div>
+
+  
+  </header>
+
+  <section
+    class="stats"
+    aria-label="Estadísticas generales"
+  >
+    @for (stat of stats; track stat.title) {
+      <article class="stat-card">
+        <div class="stat-icon" aria-hidden="true">
+          <i class="bi {{ stat.icon }}"></i>
+        </div>
+
+        <div class="stat-content">
+          <span>{{ stat.title }}</span>
+          <strong>{{ stat.value }}</strong>
+        </div>
+      </article>
+    }
+  </section>
+
+  <section class="dashboard-grid">
+    <article class="panel reservations-panel">
+      <div class="panel-header">
+        <div>
+          <span class="panel-kicker">Actividad reciente</span>
+          <h2>Últimas reservas</h2>
+        </div>
+
+        <a routerLink="/admin/reservas">
+          Ver todas
+          <i class="bi bi-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div
+        class="table-responsive"
+        role="region"
+        aria-label="Últimas reservas"
+        tabindex="0"
+      >
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Cliente</th>
+              <th scope="col">Apartamento</th>
+              <th scope="col">Estado</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Juan Pérez</td>
+              <td>Ejecutivo</td>
+              <td>
+                <span class="status confirmed">
+                  Confirmada
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>María López</td>
+              <td>Premium</td>
+              <td>
+                <span class="status pending">
+                  Pendiente
+                </span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Carlos Díaz</td>
+              <td>Familiar</td>
+              <td>
+                <span class="status confirmed">
+                  Confirmada
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+
+    <aside
+      class="panel summary-panel"
+      aria-labelledby="summary-title"
+    >
+      <div class="panel-header">
+        <div>
+          <span class="panel-kicker">Estado actual</span>
+          <h2 id="summary-title">Resumen</h2>
+        </div>
+      </div>
+
+      <ul class="summary-list">
+        <li>
+          <div class="summary-icon">
+            <i class="bi bi-building-check" aria-hidden="true"></i>
+          </div>
+
+          <div>
+            <span>Apartamentos disponibles</span>
+            <strong>8</strong>
+          </div>
+        </li>
+
+        <li>
+          <div class="summary-icon">
+            <i class="bi bi-pie-chart-fill" aria-hidden="true"></i>
+          </div>
+
+          <div>
+            <span>Ocupación actual</span>
+            <strong>82%</strong>
+          </div>
+        </li>
+
+        <li>
+          <div class="summary-icon">
+            <i class="bi bi-box-arrow-in-right" aria-hidden="true"></i>
+          </div>
+
+          <div>
+            <span>Próximo check-in</span>
+            <strong>Hoy</strong>
+          </div>
+        </li>
+
+        <li>
+          <div class="summary-icon">
+            <i class="bi bi-calendar2-week-fill" aria-hidden="true"></i>
+          </div>
+
+          <div>
+            <span>Reservas este mes</span>
+            <strong>48</strong>
+          </div>
+        </li>
+      </ul>
+    </aside>
+  </section>
+</div>

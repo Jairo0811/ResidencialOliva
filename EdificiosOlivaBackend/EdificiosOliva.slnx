@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Source/" />
+  <Project Path="EdificiosOliva.Api/EdificiosOliva.Api.csproj" />
+  <Project Path="EdificiosOliva.Application/EdificiosOliva.Application.csproj" />
+  <Project Path="EdificiosOliva.Domain/EdificiosOliva.Domain.csproj" />
+  <Project Path="EdificiosOliva.Infrastructure/EdificiosOliva.Infrastructure.csproj" />
+</Solution>

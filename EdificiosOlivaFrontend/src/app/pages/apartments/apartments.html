@@ -1,0 +1,101 @@
+<section class="apartments-hero" aria-labelledby="apartments-page-title">
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-content">
+    <span>Edificios Oliva</span>
+    <h1 id="apartments-page-title">Departamentos disponibles</h1>
+    <p>Opciones cómodas para hospedarte en Bávaro, Punta Cana.</p>
+  </div>
+</section>
+
+<section class="filters-section" aria-labelledby="filtros-apartamentos">
+  <div class="container">
+    <h2 id="filtros-apartamentos" class="sr-only">Filtrar apartamentos</h2>
+
+    <div class="filters-card">
+      <div>
+        <label for="apartments-checkin">Entrada</label>
+        <input id="apartments-checkin" name="checkin" type="date" />
+      </div>
+
+      <div>
+        <label for="apartments-checkout">Salida</label>
+        <input id="apartments-checkout" name="checkout" type="date" />
+      </div>
+
+      <div>
+        <label for="apartments-guests">Huéspedes</label>
+        <select id="apartments-guests" name="guests">
+          <option value="1">1 persona</option>
+          <option value="2">2 personas</option>
+          <option value="3">3 personas</option>
+          <option value="4">4 personas</option>
+          <option value="5">5+</option>
+        </select>
+      </div>
+
+      <button type="button" aria-label="Aplicar filtros de búsqueda">Filtrar</button>
+    </div>
+  </div>
+</section>
+
+<section class="apartments-list" aria-labelledby="lista-apartamentos">
+  <div class="container">
+    <div class="section-header">
+      <span>Alojamientos</span>
+      <h2 id="lista-apartamentos">Elige tu próxima estadía</h2>
+      <p>Departamentos equipados para vacaciones, trabajo remoto o escapadas familiares.</p>
+    </div>
+
+    @if (loading) {
+    <p class="status-message" role="status" aria-live="polite">Cargando apartamentos...</p>
+    } @else if (errorMessage) {
+    <p class="status-message error" role="alert">{{ errorMessage }}</p>
+    } @else if (apartments.length === 0) {
+    <p class="status-message">No hay apartamentos disponibles en este momento.</p>
+    } @else {
+    <div class="apartments-grid">
+      @for (apartment of apartments; track apartment.id) {
+      <article class="apartment-card">
+        <div class="image-wrapper">
+          <img [src]="getApartmentImage(apartment)" [alt]="'Imagen principal de ' + apartment.name"
+            (error)="handleImageError($event)" loading="lazy" decoding="async" />
+        </div>
+
+        <div class="card-body">
+          <div class="card-top">
+            <div>
+              <h3>{{ apartment.name }}</h3>
+              <p class="location">
+                <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+                {{ apartment.location }}
+              </p>
+            </div>
+
+            <span class="price">US${{ apartment.price }}/noche</span>
+          </div>
+
+          <p class="description">{{ apartment.description }}</p>
+
+          <div class="features" [attr.aria-label]="'Características de ' + apartment.name">
+            <span><i class="bi bi-people" aria-hidden="true"></i>
+              {{ apartment.guests }} huéspedes</span>
+            <span><i class="bi bi-door-open" aria-hidden="true"></i>
+              {{ apartment.bedrooms }} hab.</span>
+            <span><i class="bi bi-droplet" aria-hidden="true"></i>
+              {{ apartment.bathrooms }} baños</span>
+            @for (amenity of (apartment.amenities || []).slice(0, 2); track amenity) {
+            <span>{{ amenity }}</span>
+            }
+          </div>
+
+          <a [routerLink]="['/departamentos', apartment.id]" [attr.aria-label]="'Ver detalles de ' + apartment.name">
+            Ver detalles
+          </a>
+        </div>
+      </article>
+      }
+    </div>
+    }
+  </div>
+</section>
