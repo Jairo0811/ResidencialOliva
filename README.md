@@ -124,11 +124,11 @@ SQL Server
 # 📂 Estructura del Proyecto
 
 ```text
-ResidencialOliva
+EdificiosOliva
 │
-├── ResidencialOliva/              → Frontend Angular
+├── EdificiosOlivaFrontend/               → Frontend Angular
 │
-└── EdificiosOliva/                → Backend .NET
+└── EdificiosOlivaBackend/                → Backend .NET
     │
     ├── EdificiosOliva.Api
     ├── EdificiosOliva.Application
