@@ -11,16 +11,13 @@ on:
       - master
       - main
 
-  workflow_dispatch:
+permissions:
+  contents: read
 
 jobs:
   build:
     name: Build Angular application
     runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: ./ResidencialOliva
 
     steps:
       - name: Checkout repository
@@ -29,14 +26,17 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
+          cache: npm
+          cache-dependency-path: package-lock.json
 
       - name: Verify Angular project
+        shell: bash
         run: |
           echo "Directorio actual:"
           pwd
 
-          echo "Contenido:"
+          echo "Contenido del repositorio:"
           ls -la
 
           test -f angular.json
@@ -44,7 +44,7 @@ jobs:
           test -f package-lock.json
 
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps
+        run: npm ci
 
       - name: Build Angular application
         run: npm run build
