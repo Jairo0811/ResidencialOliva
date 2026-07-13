@@ -1,34 +1,29 @@
 # 🏠🏝️ Edificios Oliva 🫒🏡
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=angular,ts,html,css,bootstrap,firebase&perline=6" />
+  <img src="https://skillicons.dev/icons?i=angular,ts,html,css,bootstrap,dotnet,cs,firebase&perline=9" />
 </p>
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=vscode,git,github,npm&perline=4" />
+  <img src="https://skillicons.dev/icons?i=visualstudio,vscode,git,github,npm&perline=5" />
 </p>
 
 <p align="center">
-
-# Plataforma web para alquiler de apartamentos vacacionales
-
-**Bávaro • Punta Cana • República Dominicana**
-
-Desarrollado con Angular + Firebase
-
+  <strong>Plataforma web para alquiler y administración de apartamentos vacacionales</strong><br>
+  <strong>Bávaro • Punta Cana • República Dominicana</strong>
 </p>
 
 ---
 
 # 📖 Descripción
 
-**Edificios Oliva** es una plataforma web desarrollada para la promoción y administración de apartamentos vacacionales ubicados en **Bávaro, Punta Cana**.
+**Edificios Oliva** es una plataforma web desarrollada para la promoción, administración y gestión de apartamentos vacacionales ubicados en **Bávaro, Punta Cana, República Dominicana**.
 
-El objetivo del proyecto es ofrecer una experiencia moderna tanto para los visitantes como para los administradores, permitiendo consultar apartamentos, realizar reservas y administrar toda la información desde un panel privado.
+El sistema ofrece una experiencia moderna tanto para visitantes como para administradores, permitiendo consultar apartamentos, administrar reservas, clientes, pagos y toda la información del negocio mediante un panel administrativo seguro.
 
-El proyecto nació originalmente en **2019** bajo el nombre **Residencial Oliva**, como uno de los primeros desarrollos personales del autor utilizando Angular.
+El proyecto nació originalmente en **2019** bajo el nombre **Residencial Oliva**, convirtiéndose en uno de los primeros desarrollos personales del autor utilizando Angular.
 
-En **2026** comenzó una reconstrucción completa utilizando Angular moderno, Firebase y una arquitectura totalmente renovada, preservando el proyecto original como versión **Legacy**.
+En **2026** comenzó una reconstrucción completa utilizando una arquitectura Full Stack basada en **Angular**, **ASP.NET Core Web API**, **SQL Server** y **Firebase Authentication**, preservando la versión original como **Legacy Version**.
 
 ---
 
@@ -36,32 +31,32 @@ En **2026** comenzó una reconstrucción completa utilizando Angular moderno, Fi
 
 ## 🌐 Sitio Web
 
-* ✅ Landing Page moderna
-* ✅ Hero principal
-* ✅ Responsive Design
-* ✅ Navegación optimizada
-* ✅ Sección de apartamentos
-* ✅ Galería fotográfica
-* ✅ Información de contacto
-* ✅ Google Maps
-* ✅ Animaciones suaves
-* ✅ Diseño moderno
+- ✅ Landing Page moderna
+- ✅ Hero principal
+- ✅ Responsive Design
+- ✅ Catálogo de apartamentos
+- ✅ Galería fotográfica
+- ✅ Información de contacto
+- ✅ Google Maps
+- ✅ Animaciones
+- ✅ Diseño moderno
+- 🚧 Sistema de reservas
 
 ---
 
 ## 🔐 Panel Administrativo
 
-* ✅ Inicio de sesión con correo y contraseña
-* ✅ Inicio de sesión con Google
-* ✅ Firebase Authentication
-* ✅ Cloud Firestore
-* ✅ Gestión de perfiles
-* ✅ Roles de usuario
-* ✅ Dashboard administrativo moderno
-* 🔄 Gestión de apartamentos
-* 🔄 Gestión de reservas
-* 🔄 Gestión de clientes
-* 🔄 Gestión de pagos
+- ✅ Inicio de sesión con correo y contraseña
+- ✅ Inicio de sesión con Google
+- ✅ Firebase Authentication
+- ✅ Dashboard moderno
+- ✅ Roles de usuario
+- 🚧 Gestión de apartamentos
+- 🚧 Gestión de imágenes
+- 🚧 Gestión de reservas
+- 🚧 Gestión de clientes
+- 🚧 Gestión de pagos
+- 🚧 Reportes
 
 ---
 
@@ -69,187 +64,189 @@ En **2026** comenzó una reconstrucción completa utilizando Angular moderno, Fi
 
 <p align="center">
 
-<img src="https://skillicons.dev/icons?i=angular,ts,html,css,bootstrap,firebase,vscode,git,github,npm" />
+<img src="https://skillicons.dev/icons?i=angular,ts,html,css,bootstrap,dotnet,cs,firebase,visualstudio,vscode,git,github,npm" />
 
 </p>
 
-| Tecnología              | Uso                  |
-| ----------------------- | -------------------- |
-| Angular                 | Frontend             |
-| TypeScript              | Lógica               |
-| HTML5                   | Estructura           |
-| CSS3                    | Diseño               |
-| Bootstrap               | Componentes UI       |
-| Firebase Authentication | Autenticación        |
-| Cloud Firestore         | Base de datos        |
-| Google Maps             | Ubicación            |
-| Git                     | Control de versiones |
-| GitHub                  | Repositorio          |
+| Tecnología | Uso |
+|------------|----------------------------|
+| Angular | Frontend |
+| TypeScript | Lógica del cliente |
+| HTML5 | Estructura |
+| CSS3 | Diseño |
+| Bootstrap | Componentes UI |
+| ASP.NET Core Web API | Backend |
+| C# | Lógica del servidor |
+| Entity Framework Core | ORM |
+| SQL Server | Base de datos |
+| Firebase Authentication | Autenticación |
+| Google Maps | Ubicación |
+| Git | Control de versiones |
+| GitHub | Repositorio |
 
 ---
 
-# 🔐 Autenticación
+# 🏗️ Arquitectura
 
-El sistema utiliza **Firebase Authentication** como proveedor principal de autenticación.
+```text
+Angular
+        │
+        ▼
+ASP.NET Core Web API
+        │
+        ▼
+Application Layer
+        │
+        ▼
+Infrastructure Layer
+        │
+        ▼
+SQL Server
+```
 
-Actualmente soporta:
+Autenticación:
 
-* Inicio de sesión mediante correo y contraseña.
-* Inicio de sesión mediante Google.
-* Gestión de perfiles en Cloud Firestore.
-* Protección del panel administrativo mediante Auth Guards.
-* Roles de administrador.
+```text
+Usuario
+      │
+      ▼
+Firebase Authentication
+      │
+      ▼
+ASP.NET Core API
+      │
+      ▼
+SQL Server
+```
 
 ---
 
-# 📂 Arquitectura
+# 📂 Arquitectura del Backend
+
+```text
+EdificiosOliva
+│
+├── EdificiosOliva.Api
+├── EdificiosOliva.Application
+├── EdificiosOliva.Domain
+└── EdificiosOliva.Infrastructure
+```
+
+---
+
+# 📂 Arquitectura del Frontend
 
 ```text
 src
 │
 ├── app
 │   ├── core
-│   │   ├── guards
-│   │   ├── models
-│   │   └── services
-│   │       ├── auth.service.ts
-│   │       ├── apartment.service.ts
-│   │       ├── reservation.service.ts
-│   │       └── firebase.service.ts
-│   │
 │   ├── pages
-│   │   ├── home
-│   │   ├── apartments
-│   │   ├── apartment-detail
-│   │   ├── gallery
-│   │   ├── contact
-│   │   ├── login
-│   │   └── admin
-│   │
-│   └── shared
-│       ├── navbar
-│       ├── footer
-│       └── components
+│   ├── shared
+│   └── layouts
 │
 ├── public
-│   └── images
 │
-├── environments
-│
-└── README.md
+└── environments
 ```
 
 ---
 
 # 🚀 Instalación
 
-## Clonar el repositorio
+## Clonar el proyecto
 
 ```bash
 git clone https://github.com/Jairo0811/ResidencialOliva.git
 ```
 
-Entrar al proyecto
+Frontend
 
 ```bash
 cd ResidencialOliva
-```
-
-Instalar dependencias
-
-```bash
 npm install
+ng serve
 ```
 
-Ejecutar
+Backend
 
 ```bash
-ng serve -o
-```
-
-Abrir
-
-```
-http://localhost:4200
+cd EdificiosOliva
+dotnet restore
+dotnet run --project EdificiosOliva.Api
 ```
 
 ---
 
 # 📊 Estado del Proyecto
 
-| Módulo                      | Estado |
-| --------------------------- | :----: |
-| 🏠 Landing Page             |    ✅   |
-| 🏢 Apartamentos             |   🚧   |
-| 📷 Galería                  |   🚧   |
-| 📍 Google Maps              |    ✅   |
-| 📞 Contacto                 |   🚧   |
-| 🔐 Login por Correo         |    ✅   |
-| 🔑 Login con Google         |    ✅   |
-| 🔥 Firebase Authentication  |    ✅   |
-| ☁️ Cloud Firestore          |    ✅   |
-| 👤 Dashboard Administrativo |    ✅   |
-| 📱 Responsive Design        |   🚧   |
+| Módulo | Estado |
+|-------------------------------|:------:|
+| Landing Page | ✅ |
+| Responsive Design | ✅ |
+| Firebase Authentication | ✅ |
+| Login con Google | ✅ |
+| Dashboard Administrativo | ✅ |
+| Backend ASP.NET Core | ✅ |
+| SQL Server | ✅ |
+| Entity Framework Core | ✅ |
+| CRUD Apartamentos | 🚧 |
+| Gestión de Imágenes | 🚧 |
+| Gestión de Clientes | 🚧 |
+| Gestión de Reservas | 🚧 |
+| Gestión de Pagos | 🚧 |
+| Dashboard Dinámico | 🚧 |
+| Reportes | 🚧 |
 
 ---
 
 # 🗺️ Roadmap
 
-## ✅ Primera Etapa (Completada)
+## ✅ Primera Etapa
 
-* Nueva arquitectura
-* Angular moderno
-* Nuevo diseño
-* Responsive
-* Home
-* Navbar
-* Footer
-* Firebase Authentication
-* Cloud Firestore
-* Login por correo
-* Login con Google
-* Dashboard Administrativo
+- Nueva arquitectura Frontend
+- Angular moderno
+- Responsive Design
+- Firebase Authentication
+- Login por correo
+- Login con Google
+- Dashboard Administrativo
 
 ---
 
 ## 🚧 Segunda Etapa
 
-* Catálogo de apartamentos
-* Detalle del apartamento
-* Galería
-* Contacto
-* Integración completa con Google Maps
-* Optimización SEO
+- Backend ASP.NET Core
+- SQL Server
+- Entity Framework Core
+- CRUD Apartamentos
+- Gestión de imágenes
+- API REST
 
 ---
 
 ## 🚀 Tercera Etapa
 
-* Gestión de apartamentos
-* Gestión de reservas
-* Gestión de clientes
-* Gestión de pagos
-* Dashboard dinámico
-* Reportes
-* Estadísticas
-* Panel completo de administración
+- Reservas
+- Clientes
+- Pagos
+- Dashboard dinámico
+- Reportes
+- Estadísticas
+- Auditoría
+- Notificaciones
 
 ---
 
-
-
 # 💡 Historia del Proyecto
 
-Este proyecto comenzó en **2019** con el objetivo de crear una página web para promocionar unos apartamentos familiares ubicados en **Bávaro, Punta Cana, República Dominicana**, ofreciendo a los visitantes una forma sencilla de conocer las instalaciones, explorar los apartamentos disponibles, consultar información relevante y facilitar el contacto para futuras reservas.
+**Edificios Oliva** comenzó en **2019** como un proyecto personal para promocionar apartamentos familiares ubicados en **Bávaro, Punta Cana**.
 
-Aunque nunca llegó a implementarse oficialmente, el desarrollo permitió experimentar con **Angular**, **Firebase** y diversas tecnologías web modernas, convirtiéndose en uno de los primeros proyectos personales del autor y en una pieza importante dentro de su crecimiento profesional como desarrollador de software.
+En **2026** el proyecto fue reconstruido completamente, evolucionando hacia una plataforma Full Stack para la administración integral de apartamentos vacacionales.
 
-En **2026**, el proyecto fue reconstruido completamente desde cero, manteniendo la esencia de la idea original, pero incorporando una arquitectura moderna, un diseño totalmente renovado, una mejor experiencia de usuario y tecnologías actuales como **Angular 20**, **Firebase Authentication** y **Cloud Firestore**.
+Actualmente utiliza una arquitectura basada en **Angular**, **ASP.NET Core Web API**, **Entity Framework Core**, **SQL Server** y **Firebase Authentication**, siguiendo principios de **Clean Architecture**, separación de responsabilidades y buenas prácticas de desarrollo.
 
-Esta nueva versión tiene como objetivo evolucionar hacia una plataforma integral para la gestión de apartamentos vacacionales, permitiendo administrar reservas, clientes, apartamentos, pagos y contenido mediante un panel administrativo seguro, escalable y preparado para futuras funcionalidades.
-
-El proyecto original permanecerá disponible como **Legacy Version**, mientras que esta edición representa la evolución definitiva de **Edificios Oliva**, reflejando la experiencia, las buenas prácticas y los conocimientos adquiridos por el autor a lo largo de los años.
-
+El proyecto original permanecerá disponible como **Legacy Version**, mientras que esta nueva edición representa la evolución definitiva de **Edificios Oliva**, concebida como una aplicación escalable, moderna y preparada para producción.
 
 ---
 
@@ -259,15 +256,14 @@ El proyecto original permanecerá disponible como **Legacy Version**, mientras q
 
 Tecnólogo en Desarrollo de Software
 
-Estudiante de Ingenieria de Software
+Estudiante de Ingeniería de Software
 
 ---
 
 <p align="center">
 
-Desarrollado con ❤️ utilizando Angular & Firebase
+Desarrollado con ❤️ utilizando Angular, ASP.NET Core y SQL Server.
 
-**Edificios Oliva • 2019 — Presente**
+<b>Edificios Oliva • 2019 — Presente</b>
 
 </p>
-
