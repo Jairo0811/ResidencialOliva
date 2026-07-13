@@ -2,6 +2,7 @@
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=angular,ts,html,css,bootstrap,dotnet,cs,firebase,visualstudio,vscode,git,github,npm&perline=7" />
+  
 </p>
 
 <p align="center">
