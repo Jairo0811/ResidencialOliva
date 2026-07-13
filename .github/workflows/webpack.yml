@@ -23,20 +23,42 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Locate Angular project
+        id: frontend
+        shell: bash
+        run: |
+          ANGULAR_FILE="$(find . -name angular.json -not -path '*/node_modules/*' -print -quit)"
+
+          if [ -z "$ANGULAR_FILE" ]; then
+            echo "No se encontró angular.json en el repositorio."
+            echo "Contenido del repositorio:"
+            find . -maxdepth 3 -type f | sort
+            exit 1
+          fi
+
+          FRONTEND_DIR="$(dirname "$ANGULAR_FILE")"
+
+          echo "Angular encontrado en: $FRONTEND_DIR"
+          echo "dir=$FRONTEND_DIR" >> "$GITHUB_OUTPUT"
+
+          test -f "$FRONTEND_DIR/package.json"
+          test -f "$FRONTEND_DIR/package-lock.json"
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: package-lock.json
+          cache-dependency-path: ${{ steps.frontend.outputs.dir }}/package-lock.json
 
       - name: Verify Angular project
         shell: bash
+        working-directory: ${{ steps.frontend.outputs.dir }}
         run: |
-          echo "Directorio actual:"
+          echo "Directorio del frontend:"
           pwd
 
-          echo "Contenido del repositorio:"
+          echo "Contenido:"
           ls -la
 
           test -f angular.json
@@ -44,7 +66,9 @@ jobs:
           test -f package-lock.json
 
       - name: Install dependencies
+        working-directory: ${{ steps.frontend.outputs.dir }}
         run: npm ci
 
       - name: Build Angular application
+        working-directory: ${{ steps.frontend.outputs.dir }}
         run: npm run build
