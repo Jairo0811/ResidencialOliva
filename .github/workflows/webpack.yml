@@ -67,7 +67,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: ${{ steps.frontend.outputs.dir }}
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Build Angular application
         working-directory: ${{ steps.frontend.outputs.dir }}
