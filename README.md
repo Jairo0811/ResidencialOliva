@@ -1,11 +1,7 @@
 # 🏠🏝️ Edificios Oliva 🫒🏡
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=angular,ts,html,css,bootstrap,dotnet,cs,firebase&perline=9" />
-</p>
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=visualstudio,vscode,git,github,npm&perline=5" />
+  <img src="https://skillicons.dev/icons?i=angular,ts,html,css,bootstrap,dotnet,cs,firebase,visualstudio,vscode,git,github,npm&perline=7" />
 </p>
 
 <p align="center">
@@ -19,11 +15,11 @@
 
 **Edificios Oliva** es una plataforma web desarrollada para la promoción, administración y gestión de apartamentos vacacionales ubicados en **Bávaro, Punta Cana, República Dominicana**.
 
-El sistema ofrece una experiencia moderna tanto para visitantes como para administradores, permitiendo consultar apartamentos, administrar reservas, clientes, pagos y toda la información del negocio mediante un panel administrativo seguro.
+La plataforma está compuesta por un sitio web público y un panel administrativo que permiten administrar apartamentos, imágenes, reservas, clientes y pagos desde una única aplicación.
 
 El proyecto nació originalmente en **2019** bajo el nombre **Residencial Oliva**, convirtiéndose en uno de los primeros desarrollos personales del autor utilizando Angular.
 
-En **2026** comenzó una reconstrucción completa utilizando una arquitectura Full Stack basada en **Angular**, **ASP.NET Core Web API**, **SQL Server** y **Firebase Authentication**, preservando la versión original como **Legacy Version**.
+En **2026** comenzó una reconstrucción completa utilizando una arquitectura moderna basada en **Angular**, **ASP.NET Core Web API**, **Entity Framework Core**, **SQL Server** y **Firebase Authentication**, preservando la versión original como **Legacy Version**.
 
 ---
 
@@ -32,15 +28,14 @@ En **2026** comenzó una reconstrucción completa utilizando una arquitectura Fu
 ## 🌐 Sitio Web
 
 - ✅ Landing Page moderna
-- ✅ Hero principal
 - ✅ Responsive Design
 - ✅ Catálogo de apartamentos
 - ✅ Galería fotográfica
 - ✅ Información de contacto
 - ✅ Google Maps
 - ✅ Animaciones
-- ✅ Diseño moderno
 - 🚧 Sistema de reservas
+- 🚧 Disponibilidad en tiempo real
 
 ---
 
@@ -49,28 +44,27 @@ En **2026** comenzó una reconstrucción completa utilizando una arquitectura Fu
 - ✅ Inicio de sesión con correo y contraseña
 - ✅ Inicio de sesión con Google
 - ✅ Firebase Authentication
-- ✅ Dashboard moderno
 - ✅ Roles de usuario
+- ✅ Dashboard moderno
 - 🚧 Gestión de apartamentos
 - 🚧 Gestión de imágenes
 - 🚧 Gestión de reservas
 - 🚧 Gestión de clientes
 - 🚧 Gestión de pagos
 - 🚧 Reportes
+- 🚧 Estadísticas
 
 ---
 
 # 🛠️ Tecnologías
 
 <p align="center">
-
-<img src="https://skillicons.dev/icons?i=angular,ts,html,css,bootstrap,dotnet,cs,firebase,visualstudio,vscode,git,github,npm" />
-
+  <img src="https://skillicons.dev/icons?i=angular,ts,html,css,bootstrap,dotnet,cs,mssql,firebase,visualstudio,vscode,git,github,npm" />
 </p>
 
 | Tecnología | Uso |
 |------------|----------------------------|
-| Angular | Frontend |
+| Angular 20 | Frontend |
 | TypeScript | Lógica del cliente |
 | HTML5 | Estructura |
 | CSS3 | Diseño |
@@ -80,56 +74,109 @@ En **2026** comenzó una reconstrucción completa utilizando una arquitectura Fu
 | Entity Framework Core | ORM |
 | SQL Server | Base de datos |
 | Firebase Authentication | Autenticación |
-| Google Maps | Ubicación |
+| Google Identity | Inicio de sesión con Google |
 | Git | Control de versiones |
 | GitHub | Repositorio |
 
 ---
 
-# 🏗️ Arquitectura
+# 🏗️ Arquitectura General
 
 ```text
-Angular
-        │
-        ▼
-ASP.NET Core Web API
-        │
-        ▼
-Application Layer
-        │
-        ▼
-Infrastructure Layer
-        │
-        ▼
-SQL Server
+                    Angular 20
+                         │
+                         ▼
+             ASP.NET Core Web API
+                         │
+          ┌──────────────┴──────────────┐
+          ▼                             ▼
+   Application Layer           Infrastructure Layer
+          │                             │
+          └──────────────┬──────────────┘
+                         ▼
+                  SQL Server Database
 ```
 
-Autenticación:
+---
+
+# 🔐 Autenticación
+
+La autenticación del sistema es gestionada mediante **Firebase Authentication**, mientras que toda la información del negocio se almacena en **SQL Server**.
 
 ```text
 Usuario
-      │
-      ▼
+    │
+    ▼
 Firebase Authentication
-      │
-      ▼
-ASP.NET Core API
-      │
-      ▼
+    │
+    ▼
+JWT Token
+    │
+    ▼
+ASP.NET Core Web API
+    │
+    ▼
 SQL Server
 ```
 
 ---
 
-# 📂 Arquitectura del Backend
+# 📂 Estructura del Proyecto
 
 ```text
 EdificiosOliva
 │
-├── EdificiosOliva.Api
-├── EdificiosOliva.Application
-├── EdificiosOliva.Domain
-└── EdificiosOliva.Infrastructure
+├── EdificiosOlivaFrontend/               → Frontend Angular
+│
+└── EdificiosOlivaBackend/                → Backend .NET
+    │
+    ├── EdificiosOliva.Api
+    ├── EdificiosOliva.Application
+    ├── EdificiosOliva.Domain
+    └── EdificiosOliva.Infrastructure
+```
+
+---
+
+# 🧱 Arquitectura del Backend (Clean Architecture)
+
+El backend sigue los principios de **Clean Architecture**, separando completamente las responsabilidades del sistema.
+
+```text
+EdificiosOliva.Api
+│
+├── Controllers
+├── Configurations
+├── Extensions
+├── Filters
+├── Middlewares
+└── Program.cs
+
+EdificiosOliva.Application
+│
+├── DTOs
+├── Interfaces
+├── Services
+├── Features
+└── Validators
+
+EdificiosOliva.Domain
+│
+├── Entities
+├── Enums
+├── ValueObjects
+├── Interfaces
+└── Common
+
+EdificiosOliva.Infrastructure
+│
+├── Persistence
+│   ├── Context
+│   ├── Configurations
+│   ├── Migrations
+│   └── Repositories
+│
+└── Services
 ```
 
 ---
@@ -141,9 +188,9 @@ src
 │
 ├── app
 │   ├── core
+│   ├── layouts
 │   ├── pages
-│   ├── shared
-│   └── layouts
+│   └── shared
 │
 ├── public
 │
@@ -154,26 +201,48 @@ src
 
 # 🚀 Instalación
 
-## Clonar el proyecto
+## Clonar el repositorio
 
 ```bash
 git clone https://github.com/Jairo0811/ResidencialOliva.git
 ```
 
-Frontend
+---
+
+## Frontend
 
 ```bash
 cd ResidencialOliva
+
 npm install
+
 ng serve
 ```
 
-Backend
+La aplicación estará disponible en:
+
+```
+http://localhost:4200
+```
+
+---
+
+## Backend
 
 ```bash
 cd EdificiosOliva
+
 dotnet restore
+
+dotnet ef database update
+
 dotnet run --project EdificiosOliva.Api
+```
+
+La API estará disponible en:
+
+```
+https://localhost:7238
 ```
 
 ---
@@ -182,21 +251,22 @@ dotnet run --project EdificiosOliva.Api
 
 | Módulo | Estado |
 |-------------------------------|:------:|
-| Landing Page | ✅ |
-| Responsive Design | ✅ |
-| Firebase Authentication | ✅ |
-| Login con Google | ✅ |
-| Dashboard Administrativo | ✅ |
-| Backend ASP.NET Core | ✅ |
-| SQL Server | ✅ |
-| Entity Framework Core | ✅ |
-| CRUD Apartamentos | 🚧 |
-| Gestión de Imágenes | 🚧 |
-| Gestión de Clientes | 🚧 |
-| Gestión de Reservas | 🚧 |
-| Gestión de Pagos | 🚧 |
-| Dashboard Dinámico | 🚧 |
-| Reportes | 🚧 |
+| 🏠 Landing Page | ✅ |
+| 📱 Responsive Design | ✅ |
+| 🔐 Firebase Authentication | ✅ |
+| 🔑 Login con Google | ✅ |
+| 🖥️ Dashboard Administrativo | ✅ |
+| ⚙️ Backend ASP.NET Core | ✅ |
+| 🗄️ SQL Server | ✅ |
+| 🧩 Entity Framework Core | ✅ |
+| 🏛️ Clean Architecture | ✅ |
+| 🏢 CRUD Apartamentos | 🚧 |
+| 🖼️ Gestión de Imágenes | 🚧 |
+| 👥 Gestión de Clientes | 🚧 |
+| 📅 Gestión de Reservas | 🚧 |
+| 💳 Gestión de Pagos | 🚧 |
+| 📊 Dashboard Dinámico | 🚧 |
+| 📈 Reportes | 🚧 |
 
 ---
 
@@ -219,34 +289,36 @@ dotnet run --project EdificiosOliva.Api
 - Backend ASP.NET Core
 - SQL Server
 - Entity Framework Core
+- Clean Architecture
+- API REST
 - CRUD Apartamentos
 - Gestión de imágenes
-- API REST
 
 ---
 
 ## 🚀 Tercera Etapa
 
-- Reservas
-- Clientes
-- Pagos
+- Gestión de reservas
+- Gestión de clientes
+- Gestión de pagos
 - Dashboard dinámico
 - Reportes
 - Estadísticas
 - Auditoría
 - Notificaciones
+- Disponibilidad en tiempo real
 
 ---
 
 # 💡 Historia del Proyecto
 
-**Edificios Oliva** comenzó en **2019** como un proyecto personal para promocionar apartamentos familiares ubicados en **Bávaro, Punta Cana**.
+**Edificios Oliva** comenzó en **2019** como un proyecto personal para promocionar apartamentos familiares ubicados en **Bávaro, Punta Cana, República Dominicana**.
 
-En **2026** el proyecto fue reconstruido completamente, evolucionando hacia una plataforma Full Stack para la administración integral de apartamentos vacacionales.
+En **2026**, el proyecto fue reconstruido completamente desde cero, evolucionando hacia una plataforma Full Stack para la administración integral de apartamentos vacacionales.
 
-Actualmente utiliza una arquitectura basada en **Angular**, **ASP.NET Core Web API**, **Entity Framework Core**, **SQL Server** y **Firebase Authentication**, siguiendo principios de **Clean Architecture**, separación de responsabilidades y buenas prácticas de desarrollo.
+Actualmente utiliza una arquitectura moderna basada en **Angular**, **ASP.NET Core Web API**, **Entity Framework Core**, **SQL Server** y **Firebase Authentication**, implementando principios como **Clean Architecture**, separación de responsabilidades, escalabilidad y buenas prácticas de desarrollo.
 
-El proyecto original permanecerá disponible como **Legacy Version**, mientras que esta nueva edición representa la evolución definitiva de **Edificios Oliva**, concebida como una aplicación escalable, moderna y preparada para producción.
+El proyecto original permanece disponible como **Legacy Version**, mientras que esta nueva edición representa la evolución profesional de **Edificios Oliva**, concebida como una plataforma moderna, escalable y preparada para producción.
 
 ---
 
@@ -262,8 +334,8 @@ Estudiante de Ingeniería de Software
 
 <p align="center">
 
-Desarrollado con ❤️ utilizando Angular, ASP.NET Core y SQL Server.
+Desarrollado con ❤️ utilizando Angular, ASP.NET Core, Entity Framework Core, SQL Server y Firebase Authentication.
 
-<b>Edificios Oliva • 2019 — Presente</b>
+**Edificios Oliva • 2019 — Presente**
 
 </p>
