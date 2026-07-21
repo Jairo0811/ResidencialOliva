@@ -1,5 +1,3 @@
-
-
 <p align="center">
   <img src="./EdificiosOlivaFrontend/public/images/logo-residencial-oliva.png" alt="Logo de Edificios Oliva" width="320" />
 </p>
@@ -328,7 +326,9 @@ Los modelos actuales permiten:
 | 🧱 Migración inicial | ✅ |
 | 🏢 CRUD API de apartamentos | 🚧 |
 | 🔗 Integración Angular ↔ API | 🚧 |
-| 🖼️ Almacenamiento definitivo de imágenes | 🚧 |
+| 🛡️ Autorización Firebase en API | 🚧 |
+| 🧯 Manejo global de errores | 🚧 |
+| 🖼️ Almacenamiento definitivo de imágenes | ⏳ |
 | 👥 Gestión de clientes | ⏳ |
 | 📅 Reservas y disponibilidad | ⏳ |
 | 💳 Gestión de pagos | ⏳ |
@@ -371,18 +371,44 @@ Leyenda:
 - Entidades de apartamentos, imágenes y amenidades.
 - OpenAPI.
 
-## 🚧 Etapa 3 — Integración Full Stack
+## 🚧 Etapa 3 — Integración Full Stack y CRUD de apartamentos
 
-- Completar CRUD REST de apartamentos.
-- Crear DTOs, validaciones, servicios y repositorios.
-- Conectar Angular mediante `HttpClient`.
-- Sustituir Firestore para los datos del negocio.
-- Validar tokens de Firebase en ASP.NET Core.
-- Sincronizar perfiles, roles y permisos con SQL Server.
-- Implementar interceptores HTTP.
-- Implementar manejo global de errores.
+Esta es la **fase activa del proyecto**. El objetivo es completar el primer módulo funcional de extremo a extremo y establecer el patrón técnico que reutilizarán los módulos de clientes, reservas, pagos y reportes.
 
-## 🚧 Etapa 4 — Imágenes y contenido
+### Backend
+
+- 🚧 Crear DTOs de creación, actualización, listado y detalle.
+- 🚧 Implementar validaciones de entrada.
+- 🚧 Crear interfaces y servicios de aplicación.
+- 🚧 Implementar repositorios con Entity Framework Core.
+- 🚧 Crear endpoints REST para listar, consultar, crear, actualizar y eliminar apartamentos.
+- 🚧 Incorporar búsqueda, filtros, ordenamiento y paginación.
+- 🚧 Aplicar eliminación lógica.
+- 🚧 Estandarizar respuestas HTTP.
+- 🚧 Implementar manejo global de excepciones.
+
+### Seguridad
+
+- 🚧 Validar tokens de Firebase en ASP.NET Core.
+- 🚧 Proteger los endpoints administrativos.
+- 🚧 Sincronizar perfiles, roles y permisos con SQL Server.
+- 🚧 Garantizar que la autorización sea decidida por la API.
+
+### Frontend
+
+- 🚧 Crear servicios basados en `HttpClient`.
+- 🚧 Implementar interceptor para tokens de Firebase.
+- 🚧 Implementar interceptor global de errores.
+- 🚧 Sustituir Firestore en el módulo de apartamentos.
+- 🚧 Conectar el catálogo público con la API.
+- 🚧 Conectar el panel administrativo con la API.
+- 🚧 Mostrar estados de carga, errores y confirmaciones.
+
+### Criterio de finalización
+
+La etapa se considerará terminada cuando un apartamento pueda crearse, consultarse, editarse y eliminarse desde Angular, persistiendo todos sus datos en `EdificiosOlivaDb` mediante la API REST.
+
+## ⏳ Etapa 4 — Imágenes y contenido
 
 - Migrar Firebase Storage.
 - Implementar proveedor de almacenamiento desacoplado.
@@ -457,11 +483,13 @@ Este módulo incluirá:
 - Validaciones.
 - Búsqueda, filtros y paginación.
 - Amenidades.
-- Imágenes.
 - Eliminación lógica.
 - Respuestas HTTP consistentes.
 - Manejo global de excepciones.
+- Validación de tokens de Firebase.
 - Integración con el panel administrativo de Angular.
+
+La gestión definitiva de imágenes se realizará en la etapa siguiente mediante un proveedor de almacenamiento desacoplado.
 
 ---
 
